@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-'''
-Created on 10-Sep-2016
 
-@author: toran
-'''
-import sys
-import queue
-import queue.Queue
-
-class A:Queue
-    pass
-
-
-        
-=======
 from collections import deque
 
 class StackFromQueue:
@@ -30,6 +15,3 @@ sfq=StackFromQueue()
 sfq.enqueue('a')
 print(sfq)
  
-        
-
->>>>>>> 4e4ce432534510ab0c8650b0c95efdd83b610319
