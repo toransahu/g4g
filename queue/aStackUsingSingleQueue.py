@@ -1,5 +1,8 @@
-'''
-Created on 10-Sep-2016
+from collections import deque
+q=deque()
+q.append('c')
+q.append('d')
 
-@author: toran
-'''
+print(q.popleft())
+print(q)
+
