@@ -12,14 +12,14 @@ str5 = "gdfgdsf(bfdgfdgf(bsedfg(gb()dfs)hds)hbghfg)BghGDFGDFG"
 def validate_paranthesis(str0):
     if (str0.count("(")) != (str0.count(")")):
         return False
-    
+
     ## stack
     s = []
-    
+
     for ch in str0:
         if ch == '(':
             s.append('(')
-            
+
         if ch == ')':
             if (len(s) == 0):
                 return False
@@ -28,7 +28,8 @@ def validate_paranthesis(str0):
     if (len(s) == 0):
         return True
 
+
 if validate_paranthesis(str5):
     print("Sahi Hai")
 else:
-    print("Galat Hai")    
+    print("Galat Hai")
