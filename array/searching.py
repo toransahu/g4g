@@ -5,6 +5,9 @@ Created on Thu Dec  7 16:27:44 2017
 @author: toran.sahu
 """
 
+def lenear_search():
+    pass
+
 def binary_search_recursive(arr,e):
     """
     Binary Search.
@@ -46,3 +49,10 @@ def binary_search_iterative(arr,e):
     return found
 
 print(binary_search_iterative(arr, 2))
+
+
+def jump_search():
+    """
+    Jump Search.
+    For sorted arrays.
+    
