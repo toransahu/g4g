@@ -5,7 +5,14 @@ Created on Mon Dec 11 09:03:20 2017
 
 @author: toran
 """
-
+def merge_sort(arr):
+    """
+    Merge Sort.
+    
+    
+    Time Complexity: 
+    Auxilary Space:
+    """
        
         
 def insertion_sort(arr):
