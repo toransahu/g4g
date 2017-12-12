@@ -5,14 +5,80 @@ Created on Mon Dec 11 09:03:20 2017
 
 @author: toran
 """
-def merge_sort(arr):
+
+
+def quick_sort(arr):
+    """
+    Quick Sort.
+    
+    Desc:
+    Paradigm: 
+    Implementation: 
+    In-place: 
+    Time Complexity: 
+        Best Case: O()
+        Avg Case: O()
+        Worst Case: O()        
+    Auxilary Space: 
+    """
+
+
+def merge(arr,left, pivot, right):
+    """
+    Merge.
+    
+    Merges two sorted arrays by in-place replacement.
+    Time Complexity: O(n)
+    Auxilary Space: O(n)
+    """
+    import copy
+    i = left
+    j = pivot+1
+    k = left
+    temp_arr = copy.copy(arr)
+    while(i<=pivot and j<=right):
+        if temp_arr[i] <= temp_arr[j]:
+            arr[k] = temp_arr[i]
+            i+=1
+        else:
+            arr[k] = temp_arr[j]
+            j+=1        
+        k+=1
+    while(i<=pivot):
+        arr[k] = temp_arr[i]
+        i+=1
+        k+=1
+    while(j<=right):
+        arr[k] = temp_arr[j]
+        j+=1
+        k+=1
+    return arr
+        
+
+def merge_sort(arr, left, right):
     """
     Merge Sort.
     
-    
+    Description: 
+        1. Binary split of array till minimum/single entity
+        2. Start merging single entity --> 2 sorted sub-array --> merge both
+        3. Continue merging till end
+    Paradigm: Divide  & Conquer
+    Implementation: Recursive only
+    In-place: Yes
     Time Complexity: 
-    Auxilary Space:
+        Best Case: O(nlogn)
+        Avg Case: O(nlogn)
+        Worst Case: O(nlogn)
+    Auxilary Space: O(n)
     """
+    if(left<right):
+        pivot = (left+right)//2
+        merge_sort(arr,0,pivot)
+        merge_sort(arr,pivot+1,right)
+        merge(arr,left,pivot,right)
+    return arr
+    
        
         
 def insertion_sort(arr):
@@ -97,5 +163,6 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(bubble_sort(arr))
 # print(bubble_sort_optimized(arr_s))
 # print(selection_sort(arr))
-print(insertion_sort(arr))
-#print(insertionSort(arr))
+# print(insertion_sort(arr))
+# print(insertionSort(arr))
+print(merge_sort(arr,0,8))
