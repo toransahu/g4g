@@ -7,11 +7,38 @@ Created on Mon Dec 11 09:03:20 2017
 """
 
 
-def partition():
-    pass
+def partition(arr, left, right):
+    """
+    Partition.
+    
+    Picks pivot is any preferable fashion:
+        1. First element
+        2. last element
+        3. Mean
+        4. randon
+    Finds index of pivot and re-arranges elements smaller than pivot to left
+    and greater to right.
+    Returns: Partitioning Index (Re-calculated index of pivot)
+    Time Complexity: O(n)
+    Auxilary Space: O(1)
+    """
+    pivot_idx = right
+    pivot_val = arr[pivot_idx]
+    partition_idx = left
+    
+    # iterate from left to one step less of right
+    # check number of elements lower than pivot_val, it will give partition_idx
+    
+    for i in range(left,right):
+        if arr[i]<=pivot_val:
+            arr[i], arr[partition_idx] = arr[partition_idx], arr[i]
+            partition_idx+=1
+    
+    # put pivot in its partitioning index
+    arr[right], arr[partition_idx] = arr[partition_idx], arr[right]
+    return partition_idx
 
-
-def quick_sort(arr):
+def quick_sort(arr,left,right):
     """
     Quick Sort.
     
@@ -25,6 +52,11 @@ def quick_sort(arr):
         Worst Case: O()        
     Auxilary Space: 
     """
+    if left<right:
+        partition_idx = partition(arr,left,right)
+        quick_sort(arr,left,partition_idx-1)
+        quick_sort(arr,partition_idx+1,right)
+    return arr
 
 
 def merge(arr,left, pivot, right):
@@ -169,4 +201,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(selection_sort(arr))
 # print(insertion_sort(arr))
 # print(insertionSort(arr))
-print(merge_sort(arr,0,8))
+# print(merge_sort(arr,0,8))
+print(quick_sort([2,3,9,4,5,10],0,5))
