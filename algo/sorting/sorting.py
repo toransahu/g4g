@@ -7,12 +7,16 @@ Created on Mon Dec 11 09:03:20 2017
 """
 
 
+def partition():
+    pass
+
+
 def quick_sort(arr):
     """
     Quick Sort.
     
     Desc:
-    Paradigm: 
+    Paradigm: Divide & Conquer
     Implementation: 
     In-place: 
     Time Complexity: 
