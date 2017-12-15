@@ -39,7 +39,49 @@ def partition(arr, left, right):
     return partition_idx
 
 def quick_sort_iterative(arr,left,right):
-    pass
+    """
+    """
+    
+    # create an auxilary stack of any size, does not matter
+    # we will use top to navigate
+    # DO NOT USE inbuit Methods, may increase the time complexity
+    top = -1
+    stack = [0]*(right - left + 1)
+    top+=1
+    stack[top] = left
+    top+=1
+    stack[top] = right
+    
+    # keep popping from stack while its not empty
+    # do partition
+    # re-calculate left & right in binary fashion
+    while(top>=0):
+        # pop left & right
+        right = stack[top]
+        top-=1
+        left = stack[top]
+        top-=1
+        
+        # partition
+        partition_idx = partition(arr, left, right)
+        
+        # check if there is any sub-array in LHS of partition_idx
+        if left < partition_idx-1:
+            # fill the stack with left & right of LHS sub-array
+            top+=1
+            stack[top] = left
+            top+=1
+            stack[top] = partition_idx - 1
+            
+        # check if there is any sub-array in RHS of partition_idx
+        if partition_idx + 1 < right:
+            # fill the stack with left & right of RHS sub-array
+            top+=1
+            stack[top] = partition_idx + 1
+            top+=1
+            stack[top] = right
+    return arr
+            
 
 def quick_sort_recursive(arr,left,right):
     """
@@ -208,4 +250,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(insertion_sort(arr))
 # print(insertionSort(arr))
 # print(merge_sort(arr,0,8))
-print(quick_sort_recursive([2,3,9,4,5,10],0,5))
+#print(quick_sort_recursive([2,3,9,4,5,10],0,5))
+print(quick_sort_iterative([2,3,9,4,5,10],0,5))
