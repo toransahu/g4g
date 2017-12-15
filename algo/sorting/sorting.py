@@ -38,24 +38,27 @@ def partition(arr, left, right):
     arr[right], arr[partition_idx] = arr[partition_idx], arr[right]
     return partition_idx
 
-def quick_sort(arr,left,right):
+def quick_sort_iterative(arr,left,right):
+    pass
+
+def quick_sort_recursive(arr,left,right):
     """
     Quick Sort.
     
-    Desc:
+    
     Paradigm: Divide & Conquer
     Implementation: 
     In-place: 
     Time Complexity: 
-        Best Case: O()
-        Avg Case: O()
-        Worst Case: O()        
+        Best Case: O(nlogn)
+        Avg Case: O(nlogn)
+        Worst Case: O(n2)        
     Auxilary Space: 
     """
     if left<right:
         partition_idx = partition(arr,left,right)
-        quick_sort(arr,left,partition_idx-1)
-        quick_sort(arr,partition_idx+1,right)
+        quick_sort_recursive(arr,left,partition_idx-1)
+        quick_sort_recursive(arr,partition_idx+1,right)
     return arr
 
 
@@ -63,7 +66,10 @@ def merge(arr,left, pivot, right):
     """
     Merge.
     
-    Merges two sorted arrays by in-place replacement.
+    Desc:
+        1. Merges two sorted sub-arrays by using an extra space of O(n).
+        2. begin from 0th index of both sub-array, do comparision
+        3. Make changes in original array
     Time Complexity: O(n)
     Auxilary Space: O(n)
     """
@@ -202,4 +208,4 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(insertion_sort(arr))
 # print(insertionSort(arr))
 # print(merge_sort(arr,0,8))
-print(quick_sort([2,3,9,4,5,10],0,5))
+print(quick_sort_recursive([2,3,9,4,5,10],0,5))
