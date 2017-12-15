@@ -13,9 +13,9 @@ def partition(arr, left, right):
     
     Picks pivot is any preferable fashion:
         1. First element
-        2. last element
+        2. Last element
         3. Mean
-        4. randon
+        4. Random
     Finds index of pivot and re-arranges elements smaller than pivot to left
     and greater to right.
     Returns: Partitioning Index (Re-calculated index of pivot)
@@ -40,6 +40,12 @@ def partition(arr, left, right):
 
 def quick_sort_iterative(arr,left,right):
     """
+    Desc:
+        In this version of quicksort we're trying to mimic "how compiler executes 
+        recursive functions using recursion stacks".
+        The performance of this version may be worst than recursive version.
+        
+    Auxilary Space: O(n)
     """
     
     # create an auxilary stack of any size, does not matter
@@ -87,15 +93,19 @@ def quick_sort_recursive(arr,left,right):
     """
     Quick Sort.
     
-    
-    Paradigm: Divide & Conquer
-    Implementation: 
-    In-place: 
-    Time Complexity: 
-        Best Case: O(nlogn)
-        Avg Case: O(nlogn)
-        Worst Case: O(n2)        
-    Auxilary Space: 
+    * Description:
+            1. Partition the array about a pivot: re-arrange smaller elements in LHS & greater elements in RHS of pivot
+            2. Return partitioned index (i.e. index of pivot after re-arrangement)
+            3. Re-call quicksort for sub-array smaller than pivot
+            4. Re-call quicksort for sub-array greater than pivot
+        * Time Complexity:
+            1. Best Case: O(nlogn) (Occurs when pivot element is middle element value-wise)
+            2. Avg Case: O(nlogn) 
+            3. Worst Case: O(n2) (Occurs when pivot element is either smaller or larger element)
+        * Auxilary Space: O(1)
+        * Algorithm Paradigm: Divide and Conquer
+        * Implementation: Recursive (Generally) and Iterative
+        * In-Place: Yes (because auxilary space O(n)) 
     """
     if left<right:
         partition_idx = partition(arr,left,right)
@@ -250,5 +260,6 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(insertion_sort(arr))
 # print(insertionSort(arr))
 # print(merge_sort(arr,0,8))
-#print(quick_sort_recursive([2,3,9,4,5,10],0,5))
-print(quick_sort_iterative([2,3,9,4,5,10],0,5))
+# print(quick_sort_recursive([2,3,9,4,5,10],0,5))
+# print(quick_sort_iterative([2,3,9,4,5,10],0,5))
+print(quick_sort_recursive([1,1,1,1,1,1],0,5))
