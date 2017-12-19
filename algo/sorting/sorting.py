@@ -10,6 +10,10 @@ Created on Mon Dec 11 09:03:20 2017
 def heapify_subtree(arr, size, node):
     """
     Heapify a node of a Sub Tree of a given size.
+    
+    Time Complexity: O(logn)
+    Auxilary Space: O(1)
+    Implementation: Recursive
     """
     n = size
     # assign i to largest
@@ -37,14 +41,45 @@ def heapify_subtree(arr, size, node):
         heapify_subtree(arr, size, largest)            
     return arr
 
-def heap_sort(arr, left, right):
+def heap_sort(arr):
     """
     Heap Sort.
     
     Desc:
+        1. Make max heap using heapify(). To do so, start from last leaf and make max heap till root node.
+        2. Loop from last leaf to second node.
+            1. Swap last leaf with root node in max heap
+            2. Heapify the sub-tree (by ignoring last leaf) at root node
+               till the loop covers all the nodes except the root node
+    Useful: 
+        1. When there is time (Quick's problem) and space (Merge's problem) bound
+    Advantage:
+        1. worst case upper bound is O(nlogn) with only O(1) auxilary space
+    Applications:
+        1. Sort a nearly sorted (or K sorted) array
+        2. k largest(or smallest) elements in an array
+    Time Complexity: O(heapify) * O(n) = O(nlogn)
+    Auxilary Space: O(1)
+    In-Place: Yes
+    Implementation: Recursive (Heapify)
+    Algorithm Paradigm: Comparision Based
+    Data Structure: Array + Complete Binary Tree
+    Stable: Not in general
+    Note: Quick & Merge are better in practice.
     """
-    pass
-    
+    size = len(arr)
+    # make max heap
+    # to do so, start from last leaf and make max heap till root node
+    for node in range(size, -1, -1):
+        heapify_subtree(arr, size, node)
+        
+    # swap last leaf with root node in max heap
+    # and heapify the sub-tree (by ignoring last leaf) at root node
+    # till the loop covers all the nodes except the root node
+    for i in range(len(arr)-1,0,-1):
+        arr[i], arr[0] = arr[0], arr[i]
+        heapify_subtree(arr, i, 0)
+    return arr
 
 def partition(arr, left, right):
     """
@@ -303,4 +338,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(quick_sort_iterative([2,3,9,4,5,10],0,5))
 # print(quick_sort_recursive([1,1,1,1,1,1],0,5))
 # print(max_heap([1,3,2,5,4,0],0,5))
-print(max_heap([1,2,3,4,5,6],0))
+# print(max_heap([1,2,3,4,5,6],0))
+print(heap_sort([1,2,3,4,5,6]))
