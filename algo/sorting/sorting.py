@@ -7,6 +7,45 @@ Created on Mon Dec 11 09:03:20 2017
 """
 
 
+def heapify_subtree(arr, size, node):
+    """
+    Heapify a node of a Sub Tree of a given size.
+    """
+    n = size
+    # assign i to largest
+    largest = node
+    # calculate index of left and right_child child
+    left_child = 2 * node + 1
+    right_child = 2 * node + 2
+    
+    # check if left child exists and
+    # left child is larger than its parent
+    if left_child < n and arr[largest] < arr[left_child]:
+        largest = left_child
+    
+    # check if right child exists and
+    # right child is larger than its parent
+    if right_child < n and arr[largest] < arr[right_child]:
+        largest = right_child
+    
+    # if the root/parent has been changed (from its orignal/initial value),
+    # i.e. the index of largest and node is not same as we had assigned earlier,then
+    # swap the value of larger child with parent
+    if largest != node:
+        arr[largest], arr[node] = arr[node], arr[largest]
+        # and heapify that node      i.e. the index of child which was larger
+        heapify_subtree(arr, size, largest)            
+    return arr
+
+def heap_sort(arr, left, right):
+    """
+    Heap Sort.
+    
+    Desc:
+    """
+    pass
+    
+
 def partition(arr, left, right):
     """
     Partition.
@@ -262,4 +301,6 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(merge_sort(arr,0,8))
 # print(quick_sort_recursive([2,3,9,4,5,10],0,5))
 # print(quick_sort_iterative([2,3,9,4,5,10],0,5))
-print(quick_sort_recursive([1,1,1,1,1,1],0,5))
+# print(quick_sort_recursive([1,1,1,1,1,1],0,5))
+# print(max_heap([1,3,2,5,4,0],0,5))
+print(max_heap([1,2,3,4,5,6],0))
