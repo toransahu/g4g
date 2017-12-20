@@ -10,20 +10,72 @@ def counting_sort(arr):
     """
     Counting Sort
     
-    Pre-requisites: 
-        1. Elements should be Integers
-        2. 
+    Desc: 
+        For each element X in the input array find the number of elements smaller than X.
+    Steps:
+        1. Store counts of each element in a counting array
+        2. Add previous count to current count, to find index of last occurence of that element
+        3. Iterate over input array & pick index of the element from counting array
+        4. Put the element in output array and decrement the count by 1
+    Pre-requisites(In General): 
+        1. Elements should be Non Negative Integers
+        2. Over a range of 0 to k
+        3. if k < size of array (Not mandatory); for efficiency
+        
+    Useful: same as pre-requisites
+    Advantage:
+        1. Sorting in O(n)
+    Applications:
+        1. When input is distributed over a range
+        2. As a subroutine in Radix Sort
+    Time Complexity: 
+        Best: Omega(n + k)
+        Avg: theta(n + k)
+        Worst: O(n + k)
+    Auxilary Space: O(counting + output array) == O(n + k)
+    In-Place: No
+    Implementation: Iterative
+    Algorithm Paradigm: Partial Hashing
+    Data Structure: Hashtable, Array
+    Stable: Yes (order of elements with same value in input array maintains same order in output)
+    Comparion Sort: No
+    Note: Can be extended to sort negative integers also
+    """
     size = len(arr)
-    # find max element
+    # find max element (i.e. MAX will be k )
     MAX = arr[0]
     for i in arr:
         if i > MAX:
             MAX = i
     
-    # create bucket of length = value of MAX element
-    bucket = [list() for _ in range(MAX)]
+    # create counting array of length = value of MAX element + 1
+    # such that we can store counts of elements in a range (0 to MAX)
+    # auxilary space: O(k)
+    counts = [0] * (MAX + 1)
     
-    # scatter all the values
+    # create an extra output array of size same as input array
+    # auxilary space: O(n)
+    output = [0] * size
+    
+    # start storing counts of each elements in count array
+    # time complexity: O(n)
+    for i in arr:
+        counts[i] += 1
+        
+    # add previous count to next count
+    # so that each count can represent the last occurance index of each element
+    # time complexity: O(n)
+    for i in range(1, MAX + 1): # MAX + 1 == len(counts)
+        counts[i] += counts[i-1]
+        
+    # iterate over input array and find their position in count array
+    # store the element in output array and decrease the count by 1
+    # time complexity: O(n)    
+    for i in arr:
+        output[counts[i] - 1] = i
+        counts[i] -= 1
+    
+    return output
 
 def bucket_sort(arr):
     """
@@ -463,4 +515,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
 # print(heap_sort([1,2,3,4,5,6]))
-print(bucket_sort(arr))
+# print(bucket_sort(arr))
+print(counting_sort(arr))
