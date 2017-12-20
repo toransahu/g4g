@@ -319,27 +319,50 @@ def insertion_sort(arr):
     Insertion Sort.
     
     Desc:
-        Select second & onwards elements one by one. ie. i
-        Compare rest elements arr[j] i.e. 0...i-1 with above elements & if arr[j]
+        Select second & onwards elements one by one. ie. target = arr[i]
+        Compare rest elements arr[j] i.e. i-1...0 with above elements & if arr[j]
         is greater than arr[i] then shift jth elements right by one index.
         Repeat this for all j from i-1 to 0.
     Useful: For small or nearly sorted array.
     Time Complexity: 
-        Best: O(n); When 
+        Best: O(n); When array is already sorted
         Avg: O(n2); 
         Worst: O(n2)
     Auxilary Space: 
     """
   
     n = len(arr)
-    for i in range(1,n):
-        k = i-1
-        v = arr[i]
-        for j in range(i-1,-1,-1):            
-            if arr[j]>v:
+    # start looping from second element in the array
+    for idx in range(1,n):
+        # set current index value as target to put it at correct position
+        target = arr[idx]
+        # set pointer at index of the target element
+        pointer = idx
+        
+        """
+        #While way starts
+        
+        # loop if our pointer is not reached second element of the array and
+        # our target is still smaller than its previous element
+        while(pointer > 0 and target < arr[pointer - 1]):
+            arr[pointer] = arr[pointer - 1]
+            # shift pointer to left by one index
+            pointer -= 1
+        # put the target element at pointer position
+        arr[pointer] = target
+        
+        #While way ends
+        """
+        
+        for j in range(idx-1,-1,-1):
+            if target < arr[j]:
                 arr[j+1] = arr[j]
-                k = j
-        arr[k] = v        
+                pointer = j
+            # This is necessary condition in for loop to achieve best case complexity
+            else:
+                break
+        # put the target element at pointer position
+        arr[pointer] = target
     return arr
     
 
@@ -411,4 +434,4 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
 # print(heap_sort([1,2,3,4,5,6]))
-# print(bucket_sort(arr))
+print(bucket_sort(arr))
