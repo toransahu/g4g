@@ -6,6 +6,25 @@ Created on Mon Dec 11 09:03:20 2017
 @author: toran
 """
 
+def counting_sort(arr):
+    """
+    Counting Sort
+    
+    Pre-requisites: 
+        1. Elements should be Integers
+        2. 
+    size = len(arr)
+    # find max element
+    MAX = arr[0]
+    for i in arr:
+        if i > MAX:
+            MAX = i
+    
+    # create bucket of length = value of MAX element
+    bucket = [list() for _ in range(MAX)]
+    
+    # scatter all the values
+
 def bucket_sort(arr):
     """
     Bucket Sort.
@@ -17,23 +36,31 @@ def bucket_sort(arr):
                 size of given array; normal  
                 OR sqrt(size) - 1; better
             hash_func() = (element/MAX)* (hash_table_size)
+            Condition: if i < k then hash(i) < hash(k)
+        2. Partion elements on the basis of hash function, store then in array in right bucket
+        3. Sort each array in bucket using Insertionsort 
+        4. Merge all sorted arrays into one.
+    useful: when input is uniformly distributed over a range
     Advantage:
-        1.
+        1. Sorting in O(n)
     Applications:
-        1. 
-        
+        1. When input is uniformly distributed over a range
     Time Complexity: 
-    Auxilary Space: 
-    In-Place:
-    Implementation: 
-    Algorithm Paradigm: 
-    Data Structure: 
-    Stable:
+        Best: Omega(n)
+        Avg: O(n)
+        Worst: O(n)
+    Auxilary Space: O(bucket size) == O(n)
+    In-Place: No
+    Implementation: Iterative
+    Algorithm Paradigm: Hashing, Partion
+    Data Structure: Hashtable, Array
+    Stable: 
     Note: 
     """
     size  = len(arr)
     
     # find max element in array
+    # Time Complexity: O(n)
     MAX = arr[0]
     for i in arr:
         if MAX < i:
@@ -46,18 +73,20 @@ def bucket_sort(arr):
     # hash_table_size = size 
     hash_func = lambda element: int((element/MAX)* (hash_table_size - 1))
     
-    # create n number of buckets
+    # create hash_table_size number of buckets
+    # Auxilary Space: O(n) in worst case
     bucket = [list() for _ in range(hash_table_size)]
     
     # iterate through all the elements and
     # find hash value for that element and
-    # store that element in right bucket, according to hach value
+    # store that element in right bucket, according to hash value
+    # Time Complexity: O(n)
     for i in arr:
         hash_value = hash_func(i)
         bucket[hash_value].append(i)
     
     # sort all the arrays in the bucket
-    # time complexity: O(n)
+    # Time Complexity: O(n)
     for array in bucket:
         insertion_sort(array)
         
