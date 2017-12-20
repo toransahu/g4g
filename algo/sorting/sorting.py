@@ -6,6 +6,71 @@ Created on Mon Dec 11 09:03:20 2017
 @author: toran
 """
 
+def bucket_sort(arr):
+    """
+    Bucket Sort.
+    
+    Pre-requisites:
+    Desc:
+        1. Hashing:
+            hash_table_size or bucket size:
+                size of given array; normal  
+                OR sqrt(size) - 1; better
+            hash_func() = (element/MAX)* (hash_table_size)
+    Advantage:
+        1.
+    Applications:
+        1. 
+        
+    Time Complexity: 
+    Auxilary Space: 
+    In-Place:
+    Implementation: 
+    Algorithm Paradigm: 
+    Data Structure: 
+    Stable:
+    Note: 
+    """
+    size  = len(arr)
+    
+    # find max element in array
+    MAX = arr[0]
+    for i in arr:
+        if MAX < i:
+            MAX = i
+    
+    # Choose hash table size (or bucket size) & hash function
+    import math
+    
+    hash_table_size = int(math.sqrt(size))
+    # hash_table_size = size 
+    hash_func = lambda element: int((element/MAX)* (hash_table_size - 1))
+    
+    # create n number of buckets
+    bucket = [list() for _ in range(hash_table_size)]
+    
+    # iterate through all the elements and
+    # find hash value for that element and
+    # store that element in right bucket, according to hach value
+    for i in arr:
+        hash_value = hash_func(i)
+        bucket[hash_value].append(i)
+    
+    # sort all the arrays in the bucket
+    # time complexity: O(n)
+    for array in bucket:
+        insertion_sort(array)
+        
+    # merge all the sorted arrays
+    # time complexity: O(n)
+    idx = 0
+    for array in bucket:
+        for element in array:
+            arr[idx] = element
+            idx += 1
+        
+    return arr
+    
 
 def heapify_subtree(arr, size, node):
     """
@@ -21,17 +86,17 @@ def heapify_subtree(arr, size, node):
     # calculate index of left and right_child child
     left_child = 2 * node + 1
     right_child = 2 * node + 2
-    
+
     # check if left child exists and
     # left child is larger than its parent
     if left_child < n and arr[largest] < arr[left_child]:
         largest = left_child
-    
+
     # check if right child exists and
     # right child is larger than its parent
     if right_child < n and arr[largest] < arr[right_child]:
         largest = right_child
-    
+
     # if the root/parent has been changed (from its orignal/initial value),
     # i.e. the index of largest and node is not same as we had assigned earlier,then
     # swap the value of larger child with parent
@@ -251,12 +316,18 @@ def merge_sort(arr, left, right):
         
 def insertion_sort(arr):
     """
-    Select second & onwards elements one by one. ie. i
-    Compare rest elements arr[j] i.e. 0...i-1 with above elements & if arr[j]
-    is greater than arr[i] then shift jth elements right by one index.
-    Repeat this for all j from i-1 to 0.
+    Insertion Sort.
     
-    Time Complexity: O(n2)
+    Desc:
+        Select second & onwards elements one by one. ie. i
+        Compare rest elements arr[j] i.e. 0...i-1 with above elements & if arr[j]
+        is greater than arr[i] then shift jth elements right by one index.
+        Repeat this for all j from i-1 to 0.
+    Useful: For small or nearly sorted array.
+    Time Complexity: 
+        Best: O(n); When 
+        Avg: O(n2); 
+        Worst: O(n2)
     Auxilary Space: 
     """
   
@@ -325,8 +396,8 @@ def bubble_sort(arr):
     return arr
 
 
-arr = [3,6,9,1,4,9,0,3,5,2]
-arr = [9,8,7,6,5,4,3,2,1]
+arr = [3,6,9,1,4,9,0,3,5,2, 20]
+#arr = [9,8,7,6,5,4,3,2,1]
 arr_s = [1,2,3,4,5,5,6,7]
 # print(bubble_sort(arr))
 # print(bubble_sort_optimized(arr_s))
@@ -339,4 +410,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(quick_sort_recursive([1,1,1,1,1,1],0,5))
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
-print(heap_sort([1,2,3,4,5,6]))
+# print(heap_sort([1,2,3,4,5,6]))
+# print(bucket_sort(arr))
