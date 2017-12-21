@@ -29,7 +29,10 @@ def radix_sort(arr):
 def counting_sort(arr):
     """
     Counting Sort
-    
+
+    Pre-requisites (Standard): 
+        1. Elements should be Non Negative Integers
+        2. Over a range of 0 to k where k < size of array to maintain O(n)    
     Desc: 
         For each element X in the input array find the number of elements smaller than X.
     Steps:
@@ -37,16 +40,11 @@ def counting_sort(arr):
         2. Add previous count to current count, to find index of last occurence of that element
         3. Iterate over input array & pick index of the element from counting array
         4. Put the element in output array and decrement the count by 1
-    Pre-requisites (Standard): 
-        1. Elements should be Non Negative Integers
-        2. Over a range of 0 to k
-        3. if k < size of array (Not mandatory); for efficiency
-        
     Useful: same as pre-requisites
     Advantage:
-        1. Sorting in O(n)
+        1. Sorting in O(n + k)
     Applications:
-        1. When input is distributed over a range
+        1. Same as pre-requisites
         2. As a subroutine in Radix Sort
     Time Complexity: 
         Best: Omega(n + k)
