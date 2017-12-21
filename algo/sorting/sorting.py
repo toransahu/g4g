@@ -10,9 +10,14 @@ def radix_sort(arr):
     """
     Radix Sort.
     
-    * **Desc:**
     * **Pre-requisites:**        
-    * **Useful:**
+        * input array have non negative integers
+        * range should be 0 to n**c where c is some constant & numbers are represented in base n
+        * or each number takes only log2(n) bits
+    * **Desc:**
+        * for 1 to d: where d is most significant digit position of MAX element in inp array
+        * do counting sort on array
+    * **Useful:** same as prerequisites
     * **Advantage:**
     * **Applications:**
     * **Time Complexity:** 
