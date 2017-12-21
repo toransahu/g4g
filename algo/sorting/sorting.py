@@ -6,6 +6,26 @@ Created on Mon Dec 11 09:03:20 2017
 @author: toran
 """
 
+def radix_sort(arr):
+    """
+    Radix Sort.
+    
+    * **Desc:**
+    * **Pre-requisites:**        
+    * **Useful:**
+    * **Advantage:**
+    * **Applications:**
+    * **Time Complexity:** 
+    * **Auxilary Space:** 
+    * **In-Place:** 
+    * **Implementation:** 
+    * **Algorithm Paradigm:** 
+    * **Data Structure:** 
+    * **Stable:** 
+    * **Note:** 
+    """
+    return arr
+
 def counting_sort(arr):
     """
     Counting Sort
@@ -17,7 +37,7 @@ def counting_sort(arr):
         2. Add previous count to current count, to find index of last occurence of that element
         3. Iterate over input array & pick index of the element from counting array
         4. Put the element in output array and decrement the count by 1
-    Pre-requisites(In General): 
+    Pre-requisites (Standard): 
         1. Elements should be Non Negative Integers
         2. Over a range of 0 to k
         3. if k < size of array (Not mandatory); for efficiency
@@ -30,7 +50,7 @@ def counting_sort(arr):
         2. As a subroutine in Radix Sort
     Time Complexity: 
         Best: Omega(n + k)
-        Avg: theta(n + k)
+        Avg: Theta(n + k)
         Worst: O(n + k)
     Auxilary Space: O(counting + output array) == O(n + k)
     In-Place: No
@@ -79,35 +99,39 @@ def counting_sort(arr):
 
 def bucket_sort(arr):
     """
-    Bucket Sort.
+    Bucket Sort (Generalized).
     
-    Pre-requisites:
+    Pre-requisites: 
+    * In Comman: A uniform distributed input array in a range of [0,1).
+    * Generalized: A uniform distributed input array in a range of non negative integers + floats. 
+    * Efficient Hash Function (specially in case of "Generalized" implementation.
     Desc:
         1. Hashing:
-            hash_table_size or bucket size:
-                size of given array; normal  
-                OR sqrt(size) - 1; better
+            hash_table_size or number of buckets:
+                * = size of input array; Standard
+                * OR = sqrt(size); Generalized
             hash_func() = (element/MAX)* (hash_table_size)
             Condition: if i < k then hash(i) < hash(k)
-        2. Partion elements on the basis of hash function, store then in array in right bucket
-        3. Sort each array in bucket using Insertionsort 
+        2. Partion inp array on the basis of hash function, store then in right bucket/array.
+        3. Sort each array  using Insertionsort 
         4. Merge all sorted arrays into one.
-    useful: when input is uniformly distributed over a range
+    Useful: When input is uniformly distributed over a positive range
     Advantage:
         1. Sorting in O(n)
     Applications:
-        1. When input is uniformly distributed over a range
+        1. When input is uniformly distributed over a positive range
+    Recurrence Equation: Theta(n) + n.O(2 - 1/n)
     Time Complexity: 
-        Best: Omega(n)
-        Avg: O(n)
-        Worst: O(n)
+        Best: Omega(n); If each bucket-array have 1 element
+        Avg: Theta(n)
+        Worst: Theta(n2); If all elements falls under single bucket
     Auxilary Space: O(bucket size) == O(n)
     In-Place: No
     Implementation: Iterative
     Algorithm Paradigm: Hashing, Partion
     Data Structure: Hashtable, Array
-    Stable: 
-    Note: 
+    Stable: Yes
+    Note: If input is not uniformally distributed, but also bucketsort may still run in linear time
     """
     size  = len(arr)
     
@@ -118,16 +142,16 @@ def bucket_sort(arr):
         if MAX < i:
             MAX = i
     
-    # Choose hash table size (or bucket size) & hash function
+    # Choose size of hashtable (or number of buckets) & hash function
     import math
     
     hash_table_size = int(math.sqrt(size))
     # hash_table_size = size 
     hash_func = lambda element: int((element/MAX)* (hash_table_size - 1))
     
-    # create hash_table_size number of buckets
+    # create "hash_table_size" number of arrays/buckets
     # Auxilary Space: O(n) in worst case
-    bucket = [list() for _ in range(hash_table_size)]
+    buckets = [list() for _ in range(hash_table_size)]
     
     # iterate through all the elements and
     # find hash value for that element and
@@ -135,17 +159,17 @@ def bucket_sort(arr):
     # Time Complexity: O(n)
     for i in arr:
         hash_value = hash_func(i)
-        bucket[hash_value].append(i)
+        buckets[hash_value].append(i)
     
-    # sort all the arrays in the bucket
-    # Time Complexity: O(n)
-    for array in bucket:
+    # sort all the arrays/buckets in the hashtable
+    # Time Complexity: n*O(2 - 1/n) #HOW???? #READ NOTES or CLRS Book
+    for array in buckets:
         insertion_sort(array)
         
     # merge all the sorted arrays
     # time complexity: O(n)
     idx = 0
-    for array in bucket:
+    for array in buckets:
         for element in array:
             arr[idx] = element
             idx += 1
@@ -503,6 +527,7 @@ def bubble_sort(arr):
 arr = [3,6,9,1,4,9,0,3,5,2, 20]
 #arr = [9,8,7,6,5,4,3,2,1]
 arr_s = [1,2,3,4,5,5,6,7]
+arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(bubble_sort(arr))
 # print(bubble_sort_optimized(arr_s))
 # print(selection_sort(arr))
@@ -515,5 +540,5 @@ arr_s = [1,2,3,4,5,5,6,7]
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
 # print(heap_sort([1,2,3,4,5,6]))
-# print(bucket_sort(arr))
-print(counting_sort(arr))
+print(bucket_sort(arr_float + arr))
+# print(counting_sort(arr))
