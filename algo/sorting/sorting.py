@@ -6,6 +6,47 @@ Created on Mon Dec 11 09:03:20 2017
 @author: toran
 """
 
+def counting_sort_for_radix(arr, decimal_place):
+    """
+    Modified Counting Sort as Sub-Routine in Radix Sort.
+    
+    * **Pre-requisites:**        
+    * **Desc:**
+    """
+    size = len(arr)
+    # create counting array of length [0 to 9]
+    # such that we can store counts of digit at current decimal place
+    # auxilary space: 
+    counts = [0] * 10
+    
+    # create an extra output array of size same as input array
+    # auxilary space: O(n)
+    output = [0] * size
+    
+    # start storing counts of each digit in count array
+    # time complexity: O(n)
+    for i in arr:
+        current_index = i//decimal_place
+        current_digit = current_index % 10
+        counts[current_digit] += 1
+        
+    # add previous count to next count
+    # so that each count can represent the last occurance index of each digit
+    # time complexity: O(n)
+    for i in range(1, 10): # 10 == len(counts)
+        counts[i] += counts[i-1]
+        
+    # REVERSE iterate over input array and find position of current digit in count array
+    # store the original element in output array and decrease the count by 1
+    # time complexity: O(n)    
+    for i in arr[::-1]:
+        current_index = i//decimal_place
+        current_digit = current_index % 10        
+        output[counts[current_digit] - 1] = i
+        counts[current_digit] -= 1
+    
+    return output
+
 def radix_sort(arr):
     """
     Radix Sort.
@@ -46,7 +87,12 @@ def radix_sort(arr):
         MAX = MAX//10
         d += 1
     
-    
+    # store decimal places possible in input array to decimal_places array
+    decimal_places = [10**i for i in range(0, d-1)]
+    # do counting sort d times == len(decimal_places)
+    for decimal_place in decimal_places:
+        arr = counting_sort_for_radix(arr, decimal_place)
+        print(arr)
     return arr
 
 def counting_sort(arr):
@@ -545,7 +591,7 @@ def bubble_sort(arr):
     return arr
 
 
-arr = [3,6,9,1,4,9,0,3,5,2, 20]
+arr = [3,6,9,1,4,9,0,3,5,2, 20, 512, 312]
 #arr = [9,8,7,6,5,4,3,2,1]
 arr_s = [1,2,3,4,5,5,6,7]
 arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
@@ -561,5 +607,7 @@ arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
 # print(heap_sort([1,2,3,4,5,6]))
-print(bucket_sort(arr_float + arr))
+# print(bucket_sort(arr_float + arr))
 # print(counting_sort(arr))
+print(radix_sort(arr))
+#print(counting_sort_for_radix(arr, 10))
