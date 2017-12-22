@@ -18,17 +18,35 @@ def radix_sort(arr):
         * for 1 to d: where d is most significant digit position of MAX element in inp array
         * do counting sort on array
     * **Useful:** same as prerequisites
-    * **Advantage:**
-    * **Applications:**
+    * **Advantage:** Over bucket sort Worst case
+    * **Applications:** Card sorting machine
+    * **Recurrence Equation:** n*O(n + k) == O(n + k)
     * **Time Complexity:** 
-    * **Auxilary Space:** 
-    * **In-Place:** 
-    * **Implementation:** 
-    * **Algorithm Paradigm:** 
-    * **Data Structure:** 
-    * **Stable:** 
+        * Best Case: Omega(n + k)
+        * Avg Case: theta(n + k)
+        * Worst Case: O(n + k)
+    * **Auxilary Space:** d*O(counting array + output array) = d*O(n + k)
+    * **In-Place:** No
+    * **Implementation:** Iterative
+    * **Algorithm Paradigm:** Partial Hashing
+    * **Data Structure:** Hashtable, array
+    * **Stable:** Yes
     * **Note:** 
     """
+    
+    # Find MAX element in the input array
+    MAX = arr[0]
+    for element in arr:
+        if MAX < element:
+            MAX = element
+            
+    # find d=number of digits of MAX element
+    d = 1           
+    while MAX > 0:
+        MAX = MAX//10
+        d += 1
+    
+    
     return arr
 
 def counting_sort(arr):
