@@ -6,6 +6,7 @@ Created on Mon Dec 11 09:03:20 2017
 @author: toran
 """
 
+
 def shell_sort(arr):
     """
     Shell Sort.
@@ -28,7 +29,6 @@ def shell_sort(arr):
     pass
 
 
-
 def counting_sort_for_radix(arr, decimal_place):
     """
     Modified Counting Sort as Sub-Routine in Radix Sort.
@@ -49,26 +49,27 @@ def counting_sort_for_radix(arr, decimal_place):
     # start storing counts of each digit in count array
     # time complexity: O(n)
     for i in arr:
-        current_index = i//decimal_place
+        current_index = i // decimal_place
         current_digit = current_index % 10
         counts[current_digit] += 1
 
     # add previous count to next count
     # so that each count can represent the last occurance index of each digit
     # time complexity: O(n)
-    for i in range(1, 10): # 10 == len(counts)
-        counts[i] += counts[i-1]
+    for i in range(1, 10):  # 10 == len(counts)
+        counts[i] += counts[i - 1]
 
     # REVERSE iterate over input array (TO MAKE IT STABLE SORT) and find position of current digit in count array
     # store the original element in output array and decrease the count by 1
     # time complexity: O(n)
     for i in arr[::-1]:
-        current_index = i//decimal_place
+        current_index = i // decimal_place
         current_digit = current_index % 10
         output[counts[current_digit] - 1] = i
         counts[current_digit] -= 1
 
     return output
+
 
 def radix_sort(arr):
     """
@@ -108,16 +109,17 @@ def radix_sort(arr):
     # find d=number of digits of MAX element
     d = 1
     while MAX > 0:
-        MAX = MAX//10
+        MAX = MAX // 10
         d += 1
 
     # store decimal places possible in input array to decimal_places array
-    decimal_places = [10**i for i in range(0, d-1)]
+    decimal_places = [10**i for i in range(0, d - 1)]
     # do counting sort d times == len(decimal_places)
     for decimal_place in decimal_places:
         arr = counting_sort_for_radix(arr, decimal_place)
         print(arr)
     return arr
+
 
 def counting_sort(arr):
     """
@@ -176,8 +178,8 @@ def counting_sort(arr):
     # add previous count to next count
     # so that each count can represent the last occurance index of each element
     # time complexity: O(n)
-    for i in range(1, MAX + 1): # MAX + 1 == len(counts)
-        counts[i] += counts[i-1]
+    for i in range(1, MAX + 1):  # MAX + 1 == len(counts)
+        counts[i] += counts[i - 1]
 
     # REVERSE iterate over input array (TO MAKE IT STABLE SORT) and find their position in count array
     # store the element in output array and decrease the count by 1
@@ -187,6 +189,7 @@ def counting_sort(arr):
         counts[i] -= 1
 
     return output
+
 
 def bucket_sort(arr):
     """
@@ -224,7 +227,7 @@ def bucket_sort(arr):
     Stable: Yes
     Note: If input is not uniformally distributed, but also bucketsort may still run in linear time
     """
-    size  = len(arr)
+    size = len(arr)
 
     # find max element in array
     # Time Complexity: O(n)
@@ -238,7 +241,7 @@ def bucket_sort(arr):
 
     hash_table_size = int(math.sqrt(size))
     # hash_table_size = size
-    hash_func = lambda element: int((element/MAX)* (hash_table_size - 1))
+    hash_func = lambda element: int((element / MAX) * (hash_table_size - 1))
 
     # create "hash_table_size" number of arrays/buckets
     # Auxilary Space: O(n) in worst case
@@ -302,6 +305,7 @@ def heapify_subtree(arr, size, node):
         heapify_subtree(arr, size, largest)
     return arr
 
+
 def heap_sort(arr):
     """
     Heap Sort.
@@ -337,10 +341,11 @@ def heap_sort(arr):
     # swap last leaf with root node in max heap
     # and heapify the sub-tree (by ignoring last leaf) at root node
     # till the loop covers all the nodes except the root node
-    for i in range(len(arr)-1,0,-1):
+    for i in range(len(arr) - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
         heapify_subtree(arr, i, 0)
     return arr
+
 
 def partition(arr, left, right):
     """
@@ -364,16 +369,17 @@ def partition(arr, left, right):
     # iterate from left to one step less of right
     # check number of elements lower than pivot_val, it will give partition_idx
 
-    for i in range(left,right):
-        if arr[i]<=pivot_val:
+    for i in range(left, right):
+        if arr[i] <= pivot_val:
             arr[i], arr[partition_idx] = arr[partition_idx], arr[i]
-            partition_idx+=1
+            partition_idx += 1
 
     # put pivot in its partitioning index
     arr[right], arr[partition_idx] = arr[partition_idx], arr[right]
     return partition_idx
 
-def quick_sort_iterative(arr,left,right):
+
+def quick_sort_iterative(arr, left, right):
     """
     Desc:
         In this version of quicksort we're trying to mimic "how compiler executes
@@ -387,44 +393,44 @@ def quick_sort_iterative(arr,left,right):
     # we will use top to navigate
     # DO NOT USE inbuit Methods, may increase the time complexity
     top = -1
-    stack = [0]*(right - left + 1)
-    top+=1
+    stack = [0] * (right - left + 1)
+    top += 1
     stack[top] = left
-    top+=1
+    top += 1
     stack[top] = right
 
     # keep popping from stack while its not empty
     # do partition
     # re-calculate left & right in binary fashion
-    while(top>=0):
+    while (top >= 0):
         # pop left & right
         right = stack[top]
-        top-=1
+        top -= 1
         left = stack[top]
-        top-=1
+        top -= 1
 
         # partition
         partition_idx = partition(arr, left, right)
 
         # check if there is any sub-array in LHS of partition_idx
-        if left < partition_idx-1:
+        if left < partition_idx - 1:
             # fill the stack with left & right of LHS sub-array
-            top+=1
+            top += 1
             stack[top] = left
-            top+=1
+            top += 1
             stack[top] = partition_idx - 1
 
         # check if there is any sub-array in RHS of partition_idx
         if partition_idx + 1 < right:
             # fill the stack with left & right of RHS sub-array
-            top+=1
+            top += 1
             stack[top] = partition_idx + 1
-            top+=1
+            top += 1
             stack[top] = right
     return arr
 
 
-def quick_sort_recursive(arr,left,right):
+def quick_sort_recursive(arr, left, right):
     """
     Quick Sort.
 
@@ -442,14 +448,14 @@ def quick_sort_recursive(arr,left,right):
         * Implementation: Recursive (Generally) and Iterative
         * In-Place: Yes (because auxilary space O(n))
     """
-    if left<right:
-        partition_idx = partition(arr,left,right)
-        quick_sort_recursive(arr,left,partition_idx-1)
-        quick_sort_recursive(arr,partition_idx+1,right)
+    if left < right:
+        partition_idx = partition(arr, left, right)
+        quick_sort_recursive(arr, left, partition_idx - 1)
+        quick_sort_recursive(arr, partition_idx + 1, right)
     return arr
 
 
-def merge(arr,left, pivot, right):
+def merge(arr, left, pivot, right):
     """
     Merge.
 
@@ -462,25 +468,25 @@ def merge(arr,left, pivot, right):
     """
     import copy
     i = left
-    j = pivot+1
+    j = pivot + 1
     k = left
     temp_arr = copy.copy(arr)
-    while(i<=pivot and j<=right):
+    while (i <= pivot and j <= right):
         if temp_arr[i] <= temp_arr[j]:
             arr[k] = temp_arr[i]
-            i+=1
+            i += 1
         else:
             arr[k] = temp_arr[j]
-            j+=1
-        k+=1
-    while(i<=pivot):
+            j += 1
+        k += 1
+    while (i <= pivot):
         arr[k] = temp_arr[i]
-        i+=1
-        k+=1
-    while(j<=right):
+        i += 1
+        k += 1
+    while (j <= right):
         arr[k] = temp_arr[j]
-        j+=1
-        k+=1
+        j += 1
+        k += 1
     return arr
 
 
@@ -501,13 +507,12 @@ def merge_sort(arr, left, right):
         Worst Case: O(nlogn)
     Auxilary Space: O(n)
     """
-    if(left<right):
-        pivot = (left+right)//2
-        merge_sort(arr,0,pivot)
-        merge_sort(arr,pivot+1,right)
-        merge(arr,left,pivot,right)
+    if (left < right):
+        pivot = (left + right) // 2
+        merge_sort(arr, 0, pivot)
+        merge_sort(arr, pivot + 1, right)
+        merge(arr, left, pivot, right)
     return arr
-
 
 
 def insertion_sort(arr):
@@ -529,12 +534,11 @@ def insertion_sort(arr):
 
     n = len(arr)
     # start looping from second element in the array
-    for idx in range(1,n):
+    for idx in range(1, n):
         # set current index value as target to put it at correct position
         target = arr[idx]
         # set pointer at index of the target element
         pointer = idx
-
         """
         #While way starts
 
@@ -550,9 +554,9 @@ def insertion_sort(arr):
         #While way ends
         """
 
-        for j in range(idx-1,-1,-1):
+        for j in range(idx - 1, -1, -1):
             if target < arr[j]:
-                arr[j+1] = arr[j]
+                arr[j + 1] = arr[j]
                 pointer = j
             # This is necessary condition in for loop to achieve best case complexity
             else:
@@ -570,13 +574,14 @@ def selection_sort(arr):
     Auxilary Space: O(1)
     """
     n = len(arr)
-    for i in range(0,n-1):
+    for i in range(0, n - 1):
         min_idx = i
-        for j in range(i,n):
+        for j in range(i, n):
             if arr[j] < arr[min_idx]:
                 min_idx = j
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
+
 
 def bubble_sort_optimized(arr):
     """
@@ -588,11 +593,11 @@ def bubble_sort_optimized(arr):
     n = len(arr)
     swapped = False
     # travers the array n-1 times
-    for i in range(0,n-1):
+    for i in range(0, n - 1):
         # Last i elements are already in place
-        for j in range(0,n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
         if not swapped:
             return arr
@@ -607,17 +612,17 @@ def bubble_sort(arr):
     """
     n = len(arr)
     # travers the array n-1 times
-    for i in range(0,n-1):
+    for i in range(0, n - 1):
         # Last i elements are already in place
-        for j in range(0,n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
 
 
-arr = [3,6,9,1,4,9,0,3,5,2, 20, 512, 312]
+arr = [3, 6, 9, 1, 4, 9, 0, 3, 5, 2, 20, 512, 312]
 #arr = [9,8,7,6,5,4,3,2,1]
-arr_s = [1,2,3,4,5,5,6,7]
+arr_s = [1, 2, 3, 4, 5, 5, 6, 7]
 arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(bubble_sort(arr))
 # print(bubble_sort_optimized(arr_s))
