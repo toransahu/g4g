@@ -74,7 +74,7 @@ def radix_sort(arr):
     """
     Radix Sort.
 
-    * **Pre-requisites:**
+    * **Pre-requisites (Standard):**
         * input array have non negative integers
         * range should be 0 to n**c where c is some constant & numbers are represented in base n
         * or each number takes only log2(n) bits
@@ -95,6 +95,7 @@ def radix_sort(arr):
     * **Algorithm Paradigm:** Partial Hashing
     * **Data Structure:** Hashtable, array
     * **Stable:** Yes
+    * **Comparion Sort:** No
     * **Note:**
     """
 
