@@ -18,7 +18,7 @@ Traverse & print the Binary Tree.
 """
 
 
-def in_order(root):
+def in_order(root, result):
     """
     In Order Traversal.
 
@@ -28,11 +28,12 @@ def in_order(root):
     """
     if root:
         # call left sub-tree
-        in_order(root.left)
-        # print current root data
-        print(root.data, end=' ')
+        in_order(root.left, result)
+        # store current root data
+        result.append(root.data)
         # call right sub-tree
-        in_order(root.right)
+        in_order(root.right, result)
+    return result
 
 
 root = Node(1)
@@ -40,5 +41,5 @@ root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
-
-in_order(root)
+result = []
+print(in_order(root, result))
