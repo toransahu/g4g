@@ -1,4 +1,4 @@
-from .binary_tree import in_order, Node
+from ds.tree.binary_tree import in_order, Node
 
 
 def test_in_order_positive():
