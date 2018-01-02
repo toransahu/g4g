@@ -3,9 +3,9 @@ Testing Binary Tree
 
 Framework: pytest
 Approach: setup & teardown (classic xunit style), module level
+Source: https://docs.pytest.org/en/latest/xunit_setup.html
 """
 
-import pytest
 
 try:
     from ..tree.binary_tree import in_order, Node
@@ -15,15 +15,18 @@ except:
 root = None
 result = None
 
+
 # setting up a binary tree
 # its root, and an empty result list
 def setup_module(module):
+    global root, result
     root = Node(1)
     root.left = Node(2)
     root.right = Node(3)
     root.left.left = Node(4)
     root.left.right = Node(5)
     result = []
+
 
 def teardown_module(module):
     # have nothing to clean, so just passing
