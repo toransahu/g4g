@@ -5,10 +5,13 @@ Framework: pytest
 Approach: setup & teardown (classic xunit style), module level
 Source: https://docs.pytest.org/en/latest/xunit_setup.html
 """
+import sys, os
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath + '/../')
 
 
 try:
-    from ..tree.binary_tree import in_order, Node
+    from tree.binary_tree import in_order, Node
 except:
     from ds.tree.binary_tree import in_order, Node
 

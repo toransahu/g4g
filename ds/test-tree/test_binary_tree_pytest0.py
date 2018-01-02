@@ -1,4 +1,12 @@
-from ds.tree.binary_tree import in_order, Node
+import sys, os
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath + '/../')
+
+
+try:
+    from tree.binary_tree import in_order, Node
+except:
+    from ds.tree.binary_tree import in_order, Node
 
 
 def test_in_order_positive():
