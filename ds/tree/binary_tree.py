@@ -36,10 +36,42 @@ def in_order(root, result):
     return result
 
 
+def pre_order(root, result):
+    """
+    Pre Order Traversal.
+
+    Prints binary tree.
+    Order: root, left, right
+    Implementation: Recursive
+    """
+    if root:
+        result.append(root.data)
+        pre_order(root.left, result)
+        pre_order(root.right, result)
+    return result
+
+
+def post_order(root, result):
+    """
+    Post Order Traversal.
+
+    Prints binary tree.
+    Order: Left, right, root
+    Implementation: Recursive
+    """
+    if root:
+        post_order(root.left, result)
+        post_order(root.right, result)
+        result.append(root.data)
+    return result
+
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
-result = []
-print(in_order(root, result))
+
+print(in_order(root, []))
+print(pre_order(root, []))
+print(post_order(root, []))
