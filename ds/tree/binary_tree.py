@@ -2,6 +2,7 @@
 
 from queue import Queue
 
+
 class Node:
     """Node of a Binary Tree."""
     def __init__(self, val):
@@ -26,6 +27,7 @@ def in_order(root, result):
     Prints binary tree.
     Order: Left, root, right
     Implementation: Recursive
+    Type: Depth First Traversal
     """
     if root:
         # call left sub-tree
@@ -44,6 +46,7 @@ def pre_order(root, result):
     Prints binary tree.
     Order: root, left, right
     Implementation: Recursive
+    Type: Depth First Traversal
     """
     if root:
         result.append(root.data)
@@ -56,6 +59,7 @@ def post_order(root, result):
     """
     Post Order Traversal.
 
+    Type: Depth First Traversal
     Prints binary tree.
     Order: Left, right, root
     Implementation: Recursive
@@ -70,6 +74,12 @@ def post_order(root, result):
 def level_order_traversal(root):
     """
     Traverse in Breadth First Search order.
+    * Desc:
+            1. Find out total level of the tree : Traverse each sub-tree + Compare level of left & right
+            2. Loop from first level to last
+            3. For each level
+    * Type: Breadth First Traversal
+    * Approach: Iterative
 
     :param root: Root of the tree
     :param result: Result in list format
@@ -84,6 +94,14 @@ def level_order_traversal(root):
 
 
 def level_of_tree(root):
+    """
+    Find out total levels in a binary Tree.
+
+    Implementation: Recursive
+
+    :param root: root of the tree
+    :return: total levels in given tree
+    """
     if root:
         l = level_of_tree(root.left)
         r = level_of_tree(root.right)
@@ -96,6 +114,16 @@ def level_of_tree(root):
 
 
 def print_given_level(root, level):
+    """
+    Print nodes of a binary tree of a given level.
+
+    * Desc:
+        1. If root is empty, return; If level reached 1, print the data
+        2. Make Recursive  call for each child by decreasing level by 1
+    :param root:
+    :param level:
+    :return:
+    """
     if root is None:
         return
     elif level == 1:
@@ -109,6 +137,10 @@ def level_order_traversal_queue(root, queue):
     """
     First visit & print node, then enqueue their child.
     Dequeue one by one and call the same function for that node.
+
+    Type: Breadth First Traversal
+    Implementation: Recursive
+    Data Structure Used: Queue
 
     :param root: Root of the binary tree
     :param queue: An empty queue
