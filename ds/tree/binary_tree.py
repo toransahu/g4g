@@ -1,5 +1,6 @@
 """Binary Tree."""
 
+from queue import Queue
 
 class Node:
     """Node of a Binary Tree."""
@@ -104,13 +105,35 @@ def print_given_level(root, level):
         print_given_level(root.right, level - 1)
 
 
+def level_order_traversal_queue(root, queue):
+    """
+    First visit & print node, then enqueue their child.
+    Dequeue one by one and call the same function for that node.
+
+    :param root: Root of the binary tree
+    :param queue: An empty queue
+    :return: Nothing, Just Prints
+    """
+    if root:
+        print(root.data)
+        if root.left:
+            queue.put(root.left)
+        if root.right:
+            queue.put(root.right)
+        level_order_traversal_queue(queue.get(), queue)
+
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
+root.right.right = Node(7)
+root.right.right.right = Node(20)
 # print(in_order(root, []))
 # print(pre_order(root, []))
 # print(post_order(root, []))
 # level_order_traversal(root)
-print(level_of_tree(root))
+# print(level_of_tree(root))
+# q = Queue()
+# level_order_traversal_queue(root, q)
