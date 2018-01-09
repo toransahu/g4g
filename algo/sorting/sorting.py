@@ -507,7 +507,7 @@ def merge_sort(arr, left, right):
         Worst Case: O(nlogn)
     Auxilary Space: O(n)
     """
-    if (left < right):
+    if left < right:
         pivot = (left + right) // 2
         merge_sort(arr, 0, pivot)
         merge_sort(arr, pivot + 1, right)
