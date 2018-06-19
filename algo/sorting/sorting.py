@@ -375,7 +375,8 @@ def partition(arr, left, right):
             partition_idx += 1
 
     # put pivot in its partitioning index
-    arr[right], arr[partition_idx] = arr[partition_idx], arr[right]
+    # i.e. swap our pivote element with the element present at pivot's (wanna be) index
+    arr[pivot_idx], arr[partition_idx] = arr[partition_idx], arr[pivot_idx]
     return partition_idx
 
 

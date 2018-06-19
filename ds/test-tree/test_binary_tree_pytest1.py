@@ -1,7 +1,6 @@
 """
 Testing Binary Tree
 
-Framework: pytest
 Approach: setup & teardown (classic xunit style), module level
 Source: https://docs.pytest.org/en/latest/xunit_setup.html
 """
