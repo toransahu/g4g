@@ -96,7 +96,7 @@ def radix_sort(arr):
     * **Algorithm Paradigm:** Partial Hashing
     * **Data Structure:** Hashtable, array
     * **Stable:** Yes
-    * **Comparion Sort:** No
+    * **Comparision Sort:** No
     * **Note:**
     """
 
@@ -151,7 +151,7 @@ def counting_sort(arr):
     Algorithm Paradigm: Partial Hashing
     Data Structure: Hashtable, Array
     Stable: Yes (order of elements with same value in input array maintains same order in output)
-    Comparion Sort: No
+    Comparision Sort: No
     Note: Can be extended to sort negative integers also
     """
     size = len(arr)
@@ -196,7 +196,7 @@ def bucket_sort(arr):
     Bucket Sort (Generalized).
 
     Pre-requisites:
-    * In Comman: A uniform distributed input array in a range of [0,1).
+    * In Common: A uniform distributed input array in a range of [0,1).
     * Generalized: A uniform distributed input array in a range of non negative integers + floats.
     * Efficient Hash Function (specially in case of "Generalized" implementation.
     Desc:
@@ -206,7 +206,7 @@ def bucket_sort(arr):
                 * OR = sqrt(size); Generalized
             hash_func() = (element/MAX)* (hash_table_size)
             Condition: if i < k then hash(i) < hash(k)
-        2. Partion inp array on the basis of hash function, store then in right bucket/array.
+        2. Partition inp array on the basis of hash function, store then in right bucket/array.
         3. Sort each array  using Insertionsort
         4. Merge all sorted arrays into one.
     Useful: When input is uniformly distributed over a positive range
@@ -222,7 +222,7 @@ def bucket_sort(arr):
     Auxilary Space: O(bucket size) == O(n)
     In-Place: No
     Implementation: Iterative
-    Algorithm Paradigm: Hashing, Partion
+    Algorithm Paradigm: Hashing, Partition
     Data Structure: Hashtable, Array
     Stable: Yes
     Note: If input is not uniformally distributed, but also bucketsort may still run in linear time
@@ -351,7 +351,7 @@ def partition(arr, left, right):
     """
     Partition.
 
-    Picks pivot is any preferable fashion:
+    Picks pivot in any preferable fashion:
         1. First element
         2. Last element
         3. Mean
@@ -368,6 +368,7 @@ def partition(arr, left, right):
 
     # iterate from left to one step less of right
     # check number of elements lower than pivot_val, it will give partition_idx
+    # as well as rearrange elements by swapping
 
     for i in range(left, right):
         if arr[i] <= pivot_val:
@@ -447,7 +448,7 @@ def quick_sort_recursive(arr, left, right):
         * Auxilary Space: O(1)
         * Algorithm Paradigm: Divide and Conquer
         * Implementation: Recursive (Generally) and Iterative
-        * In-Place: Yes (because auxilary space O(n))
+        * In-Place: Yes (because auxilary space O(1))
     """
     if left < right:
         partition_idx = partition(arr, left, right)
@@ -470,7 +471,7 @@ def merge(arr, left, pivot, right):
     import copy
     i = left
     j = pivot + 1
-    k = left
+    k = left  # this is pointer to original arr
     temp_arr = copy.copy(arr)
     while (i <= pivot and j <= right):
         if temp_arr[i] <= temp_arr[j]:
@@ -600,7 +601,7 @@ def bubble_sort_optimized(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-        if not swapped:
+        if not swapped:   # TODO: i think it is wrong in cases like 1,2,3,6,5
             return arr
     return arr
 
