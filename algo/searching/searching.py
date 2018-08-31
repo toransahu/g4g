@@ -5,8 +5,8 @@ Created on Thu Dec  7 16:27:44 2017
 @author: toran.sahu
 """
 
-
 precision = 10
+
 
 def ternary_search_recursive(arr, e, left, right):
     """
@@ -18,8 +18,8 @@ def ternary_search_recursive(arr, e, left, right):
     Auxilary Space: O(log[3] n) recursive stack  space
     """
     
-    if left<right:
-        if(right-left < precision):
+    if left < right:
+        if right-left < precision:
             return linear_search(arr,e,left,right)
         print(left,right)
         pivot1 = (right-left)//3
@@ -51,7 +51,7 @@ def exponetial_search(arr,e):
     """
     
     size = 1
-    while(size*2<=len(arr)):
+    while size*2 <= len(arr):
         if arr[size-1] >= e:
             break
         size*=2
@@ -65,7 +65,7 @@ def exponetial_search(arr,e):
     right = range_end
     index = -1
     
-    while(left<=right and index==-1):
+    while left <= right and index == -1:
         mid = (left + right)//2 
         if arr[mid] == e:
             return mid
@@ -75,7 +75,8 @@ def exponetial_search(arr,e):
             left = mid + 1
     return index
 
-def interpolation_search(arr,e):
+
+def interpolation_search(arr, e):
     """
     Enhancement over binary search.
     Enhancement: instead of take pivot as mid, it takes pivot by
@@ -86,7 +87,7 @@ def interpolation_search(arr,e):
     """
     left = 0
     right = len(arr) - 1
-    while(left<=right and e >= arr[left] and e <= arr[right]):
+    while left <= right and arr[left] <= e <= arr[right]:
         # pivot = left + int( (e-arr[left])*(right-left)/(arr[right]-arr[left]) )
         pivot = left + int(((float(right- left) / ( arr[right] - arr[left])) * ( e - arr[left])))
         if arr[pivot] == e:
@@ -98,7 +99,7 @@ def interpolation_search(arr,e):
     return -1
             
 
-def jump_search(arr,e):
+def jump_search(arr, e):
     import math
     """
     Jump Search: Jumps a step and search
@@ -109,32 +110,39 @@ def jump_search(arr,e):
     """
     m = int(math.sqrt(len(arr)))
     i = 0
-    while(i<len(arr) and e>=arr[i]):
+    while i < len(arr) and e >= arr[i]:
         if e == arr[i]:
             return True
-        i+=m
-    for j in range(i-m,min(len(arr),i)):
+        i += m
+    for j in range(i-m, min(len(arr), i)):
         if e == arr[j]:
             return True
     return False
 
-def binary_search_iterative(arr,e):
+
+def binary_search_iterative(arr, e):
+    """
+    Binary Search.
+    Condition: Sorted array
+    Complexity: log n
+    """
+
     left = 0
     right = len(arr)-1
     index = -1
     
-    while(left<=right and index==-1):
+    while left <= right and index == -1:
         mid = (left + right)//2 
         if arr[mid] == e:
             return mid
-        if e<arr[mid]:
+        if e < arr[mid]:
             right = mid -1
         else:
             left = mid + 1
     return index
         
 
-def binary_search_recursive(arr,e):
+def binary_search_recursive(arr, e):
     """
     Binary Search.
     Condition: Sorted array
@@ -159,11 +167,10 @@ def binary_search_recursive(arr,e):
 
 def linear_search(arr, e, left, right):
     for i in range(left, right+1):
-        if(arr[i] == e):
+        if arr[i] == e:
             return i
     return -1
-  
-    
+
     
 arr = [1,2,3,4,5,6,7,8]    
 # print(binary_search_recursive(arr, 3))
