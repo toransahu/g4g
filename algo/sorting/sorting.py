@@ -113,7 +113,7 @@ def radix_sort(arr):
         d += 1
 
     # store decimal places possible in input array to decimal_places array
-    decimal_places = [10**i for i in range(0, d - 1)]
+    decimal_places = [10 ** i for i in range(0, d - 1)]
     # do counting sort d times == len(decimal_places)
     for decimal_place in decimal_places:
         arr = counting_sort_for_radix(arr, decimal_place)
@@ -404,7 +404,7 @@ def quick_sort_iterative(arr, left, right):
     # keep popping from stack while its not empty
     # do partition
     # re-calculate left & right in binary fashion
-    while (top >= 0):
+    while top >= 0:
         # pop left & right
         right = stack[top]
         top -= 1
@@ -469,11 +469,12 @@ def merge(arr, left, pivot, right):
     Auxilary Space: O(n)
     """
     import copy
+
     i = left
     j = pivot + 1
     k = left  # this is pointer to original arr
     temp_arr = copy.copy(arr)
-    while (i <= pivot and j <= right):
+    while i <= pivot and j <= right:
         if temp_arr[i] <= temp_arr[j]:
             arr[k] = temp_arr[i]
             i += 1
@@ -481,11 +482,11 @@ def merge(arr, left, pivot, right):
             arr[k] = temp_arr[j]
             j += 1
         k += 1
-    while (i <= pivot):
+    while i <= pivot:
         arr[k] = temp_arr[i]
         i += 1
         k += 1
-    while (j <= right):
+    while j <= right:
         arr[k] = temp_arr[j]
         j += 1
         k += 1
@@ -601,7 +602,7 @@ def bubble_sort_optimized(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-        if not swapped:   # TODO: i think it is wrong in cases like 1,2,3,6,5
+        if not swapped:  # TODO: i think it is wrong in cases like 1,2,3,6,5
             return arr
     return arr
 
@@ -623,7 +624,7 @@ def bubble_sort(arr):
 
 
 arr = [3, 6, 9, 1, 4, 9, 0, 3, 5, 2, 20, 512, 312]
-#arr = [9,8,7,6,5,4,3,2,1]
+# arr = [9,8,7,6,5,4,3,2,1]
 arr_s = [1, 2, 3, 4, 5, 5, 6, 7]
 arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(bubble_sort(arr))
@@ -641,4 +642,4 @@ arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(bucket_sort(arr_float + arr))
 print(counting_sort(arr))
 # print(radix_sort(arr))
-#print(counting_sort_for_radix(arr, 10))
+# print(counting_sort_for_radix(arr, 10))

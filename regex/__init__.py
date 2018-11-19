@@ -7,5 +7,5 @@
 __init__.py.py
 """
 
-__author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
-__license__ = 'Distributed under terms of the AGPL license.'
+__author__ = "Toran Sahu  <toran.sahu@yahoo.com>"
+__license__ = "Distributed under terms of the AGPL license."

@@ -5,8 +5,9 @@ Approach: setup & teardown (classic xunit style), module level
 Source: https://docs.pytest.org/en/latest/xunit_setup.html
 """
 import sys, os
+
 myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../')
+sys.path.insert(0, myPath + "/../")
 
 
 try:

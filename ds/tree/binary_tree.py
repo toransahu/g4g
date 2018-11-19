@@ -5,6 +5,7 @@ from queue import Queue
 
 class Node:
     """Node of a Binary Tree."""
+
     def __init__(self, val):
         self.data = val
         self.left = None
@@ -89,7 +90,7 @@ def level_order_traversal(root):
     l = level_of_tree(root)
 
     # for exclusive upper bound use l + 1
-    for level in range(1, l+1):
+    for level in range(1, l + 1):
         print_given_level(root, level)
 
 

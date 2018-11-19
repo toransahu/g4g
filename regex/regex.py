@@ -85,18 +85,16 @@ Credits:
     - www.regular-expressions.info
 """
 
-__author__ = 'Toran Sahu  <toran.sahu@yahoo.com>'
-__license__ = 'Distributed under terms of the AGPL license.'
+__author__ = "Toran Sahu  <toran.sahu@yahoo.com>"
+__license__ = "Distributed under terms of the AGPL license."
 
 
 import re
 
 str = "This#is#$% a&%name%$ #"
-r = re.sub(r'(?<=[\w])([\W]+)(?=[\w])', ' ', str)
+r = re.sub(r"(?<=[\w])([\W]+)(?=[\w])", " ", str)
 print(r)
-r = re.sub(r'(?<=[A-Za-z0-9])([^A-Za-z0-9]+)(?=[A-Za-z0-9])', ' ', str)
+r = re.sub(r"(?<=[A-Za-z0-9])([^A-Za-z0-9]+)(?=[A-Za-z0-9])", " ", str)
 print(r)
-r = re.sub(r'q(?=u)', ' ', 'quit')
+r = re.sub(r"q(?=u)", " ", "quit")
 print(r)
-
-

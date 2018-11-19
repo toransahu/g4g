@@ -7,8 +7,9 @@ Approach: fixture with scope="module", function level
 
 import pytest
 import sys, os
+
 myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../')
+sys.path.insert(0, myPath + "/../")
 
 
 try:
@@ -26,7 +27,7 @@ def root():
     root.right = Node(3)
     root.left.left = Node(4)
     root.left.right = Node(5)
-    return  root
+    return root
 
 
 # setting up an empty res list and returning it

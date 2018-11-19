@@ -12,6 +12,7 @@ Approach:
 url: http://www.geeksforgeeks.org/find-the-maximum-subarray-xor-in-a-given-array/        
 """
 
+
 def get_max_sub_array(l):
     """Solution 1."""
     maxval = 0
@@ -20,7 +21,7 @@ def get_max_sub_array(l):
         maxtill = 0
         tmparr = []
         ## check from index 0 to n, next index 1 to n, next 2 to n and so on
-        for j in range(i,len(l)):
+        for j in range(i, len(l)):
             jv = l[j]
             maxtill = maxtill ^ jv
             tmparr.append(jv)
@@ -28,13 +29,14 @@ def get_max_sub_array(l):
             ## OR
             if maxtill > maxval:
                 maxval = maxtill
-                
+
                 subarr = tmparr.copy()
     print(subarr)
     return maxval
 
-l1 = [1, 2, 3, 4]        
+
+l1 = [1, 2, 3, 4]
 l2 = [8, 1, 7, 12, 6, 2]
 l3 = [4, 6]
 
-print(get_max_sub_array(l2))        
+print(get_max_sub_array(l2))

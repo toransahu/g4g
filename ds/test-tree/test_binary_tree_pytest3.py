@@ -7,8 +7,9 @@ Approach:fixture with scope="class",  class based
 
 import pytest
 import sys, os
+
 myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../')
+sys.path.insert(0, myPath + "/../")
 
 
 try:

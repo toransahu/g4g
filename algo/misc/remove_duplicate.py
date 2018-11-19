@@ -13,7 +13,7 @@ def integer_from_list(inp):
     :return:
     """
     MAX = max(inp)
-    count = [0]*(max + 1)
+    count = [0] * (max + 1)
     for e in inp:
         count[e] += 1
 
@@ -47,7 +47,9 @@ def dicts_from_list(inp):
     return out
 
 
-l_inp = [{'name': 'T', 'last': 'S', 'age': 0},
-         {'name': 'A', 'last': 'S', 'age': 1},
-         {'name': 'T', 'last': 'S', 'age': 0}]
+l_inp = [
+    {"name": "T", "last": "S", "age": 0},
+    {"name": "A", "last": "S", "age": 1},
+    {"name": "T", "last": "S", "age": 0},
+]
 print(dicts_from_list(l_inp))
