@@ -16,6 +16,8 @@ USES
 >> distance = edit_distance(string_a, string_b)
 """
 
+from pprint import pprint
+
 __author__ = "Toran Sahu <toran.sahu@yahoo.com>"
 __license__ = "Distributed under terms of the MIT license"
 
@@ -36,6 +38,12 @@ class Algorithm:
         self._distance_table = [
             [0 for _ in range(self._len1 + 1)] for _ in range(self._len2 + 1)
         ]
+        for i in range(self._len1 + 1):
+            self._distance_table[0][i] = i
+        for j in range(self._len2 + 1):
+            self._distance_table[j][0] = j
+
+        pprint(self._distance_table)
 
     def _compute(self):
         """Compute the output."""
@@ -44,9 +52,9 @@ class Algorithm:
         elif self._len2 == 0:
             return self._len1
 
-        for i in range(1, self._len1):
-            for j in range(1, self._len2):
-                if self._str1[i - 1 - 1] == self._str2[j - 1 - 1]:
+        for i in range(1, self._len2 + 1):
+            for j in range(1, self._len1 + 1):
+                if self._str1[j - 1] == self._str2[i - 1]:
                     self._distance_table[i][j] = self._distance_table[i - 1][
                         j - 1
                     ]
@@ -56,7 +64,9 @@ class Algorithm:
                         self._distance_table[i - 1][j],
                         self._distance_table[i][j - 1],
                     )
-        return self._distance_table[i][j]
+                pprint(self._distance_table)
+
+        return self._distance_table[self._len2][self._len1]
 
 
 def edit_distance(string_a, string_b):
