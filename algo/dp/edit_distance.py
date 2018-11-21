@@ -4,9 +4,17 @@
 # created_on: 2018-11-21 12:47
 
 """
-edit_distance.py
-"""
+Edit Distance.
 
+USES
+----
+>> from edit_distance import edit_distance
+>>
+>> string_a = "abcd"
+>> string_b = "abde"
+>>
+>> distance = edit_distance(string_a, string_b)
+"""
 
 __author__ = "Toran Sahu <toran.sahu@yahoo.com>"
 __license__ = "Distributed under terms of the MIT license"
