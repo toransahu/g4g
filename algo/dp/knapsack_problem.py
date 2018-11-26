@@ -29,7 +29,7 @@ Application:
 """
 
 
-from pprint import pprint
+# from pprint import pprint
 
 
 __author__ = "Toran Sahu <toran.sahu@yahoo.com>"
@@ -37,6 +37,8 @@ __license__ = "Distributed under terms of the MIT license"
 
 
 class Algorithm:
+    """0/1 Knapsack Algorithm."""
+
     def __init__(self, S, N, v, w):
         self._S = S
         self._N = N
@@ -98,7 +100,14 @@ class Algorithm:
 
 
 def knapsack_01(S, N, v, w):
+    """Solve 0/1 Knapsack Problem (without repetition).
+
+    :param S: Int<Size of knapsack>
+    :param N: Int<Number of items>
+    :param v: List<Int Values of each items>
+    :param w: List<Int Weights of each items>
+    """
     return Algorithm(S, N, v, w)._compute_0_1_knapsack()
 
 
-print(knapsack_01(8, 4, [1, 2, 5, 6], [2, 3, 4, 5]))
+# print(knapsack_01(8, 4, [1, 2, 5, 6], [2, 3, 4, 5]))
