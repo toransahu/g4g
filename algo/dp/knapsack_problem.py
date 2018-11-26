@@ -36,6 +36,7 @@ Application:
     - Cost/Value optimization
 References:
     - https://www.youtube.com/watch?v=nLmhmB6NzcM
+    - https://www.utdallas.edu/~scniu/OPRE-6201/documents/DP3-Knapsack.pdf
 """
 
 
