@@ -17,6 +17,7 @@ Terminologies:
     - Items Value: v
     - Item #: i
     - Current Knapsack Size = j
+    - Candidancy of items = x
 Approach:
     1. Dynamic Programming
 Time Complexity:
@@ -41,6 +42,7 @@ class Algorithm:
         self._N = N
         self._v = v
         self._w = w
+        self._x = [0 for _ in range(N)]  # selection of items
         self._memo_table = [[0 for _ in range(S + 1)] for _ in range(N + 1)]
 
     # def _compute_0_1_knapsack(self):
@@ -75,11 +77,28 @@ class Algorithm:
                     self._memo_table[i - 1][j], current_val
                 )
         # pprint(self._memo_table)
-        return self._memo_table[self._N][self._S]
+        max_val = self._memo_table[self._N][self._S]
+
+        #
+        # trace back to find selected items
+        #
+        i = self._N
+        j = self._S
+        value = self._memo_table[self._N][self._S]
+        while value > 0:
+            if self._memo_table[i][j] == self._memo_table[i - 1][j]:
+                i -= 1
+            else:
+                self._x[i - 1] = 1  # -1 for index
+                value -= self._v[i - 1]  # -1 for index
+                j = self._memo_table[i - 1].index(value)
+                i -= 1
+
+        return (max_val, self._x)
 
 
 def knapsack_01(S, N, v, w):
     return Algorithm(S, N, v, w)._compute_0_1_knapsack()
 
 
-# print(knapsack_01(8, 4, [1, 2, 5, 6], [2, 3, 4, 5]))
+print(knapsack_01(8, 4, [1, 2, 5, 6], [2, 3, 4, 5]))
