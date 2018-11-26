@@ -24,8 +24,18 @@ Time Complexity:
     - Using DP: polynomial time O(S.N)
     - Using Brute Force: O(2^N)
 Recurrence Relation:
+    K[i,j] = max{K[i-1, j], K[i-1,w[i]-j] + v[i]}
+    where 
+        - K is memo table
+        - i is item number
+        - j is the selected weight for which calculation is going on
+        - w[i] is weight of ith item 
+        - v[i] is value of ith item
+
 Application:
     - Cost/Value optimization
+References:
+    - https://www.youtube.com/watch?v=nLmhmB6NzcM
 """
 
 
