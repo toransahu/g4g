@@ -2,28 +2,28 @@
 
 ## 1. Find the maximum sum of a contiguous sub array, less than or equal to K.
 
-### Input
+#### Input
 
 ```
 arr: 1,3,5
 k: 6
 ```
 
-### Output
+#### Output
 
 ```
 contiguous subarray: [1,3]
 max sum: 4
 ```
 
-### Input
+#### Input
 
 ```
 arr: 1,2,5,7
 k: 10
 ```
 
-### Output
+#### Output
 
 ```
 contiguous subarray: [1,2,5]
@@ -34,7 +34,7 @@ max sum: 8
 
 Ref: https://stackoverflow.com/questions/64125807/check-if-there-exists-a-non-contiguous-subarray-of-k-elements-in-an-array-of-n-e
 
-### Input
+#### Input
 
 ```
 Array = [1,2,3,4,5,6,7,8,9]
@@ -42,12 +42,12 @@ length of Subarray(K) = 3
 target sum = 7.
 ```
 
-### Output
+#### Output
 ```
 A non-contiguous subarray of length 3 with sum=7 is [1,2,4].
 ```
 
-### Constraint
+#### Constraint
 ```
 1<=n<=10^6  
 1<=k<=100
@@ -59,28 +59,28 @@ Ref: https://www.geeksforgeeks.org/check-if-a-non-contiguous-subsequence-same-as
  
 ## 1.3. Find the sum of a non-contiguous sub array, less than or equal to K and subarray with max length.
 
-### Input
+#### Input
 
 ```
 arr: 1,3,5
 k: 6
 ```
 
-### Output
+#### Output
 
 ```
 (non) contiguous subarray: [1,5]
 max sum: 6
 ```
 
-### Input
+#### Input
 
 ```
 arr: 1,3,4,7
 k: 10
 ```
 
-### Output
+#### Output
 
 ```
 (non) contiguous subarray: [1,3,4]
@@ -92,28 +92,28 @@ Notice: subarray [3,7] whose sum=10 > 8 is not the answer.
 
 ## 1.4. Find the maximum sum of a non-contiguous sub array, less than or equal to K.
 
-### Input
+#### Input
 
 ```
 arr: 1,3,5
 k: 6
 ```
 
-### Output
+#### Output
 
 ```
 (non) contiguous subarray: [1,5]
 max sum: 6
 ```
 
-### Input
+#### Input
 
 ```
 arr: 1,3,4,7
 k: 10
 ```
 
-### Output
+#### Output
 
 ```
 (non) contiguous subarray: [3,7]
@@ -136,94 +136,94 @@ Ref:
 
 Ref: https://leetcode.com/problems/maximum-subarray/
 
-### Input
+#### Input
 ```
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 ```
 
-### Output
+#### Output
 
 6
 
-### Explanation
+#### Explanation
 
 ```
 [4,-1,2,1] has the largest sum = 6.
 ```
 
 
-### Input
+#### Input
 ```
 nums = [1]
 ```
 
-### Output
+#### Output
 1
 
-### Input
+#### Input
 ```
 nums = [5,4,-1,7,8]
 ```
 
-### Output
+#### Output
 23
 
 ## 1.9. Given an integer array nums, find the contiguous subarray which has the largest sum and return its sum.
 
 Ref: https://en.wikipedia.org/wiki/Maximum_subarray_problem
 
-### Input
+#### Input
 ```
 nums = [-2, 1, -1, 3, -2, 4, -5]
 ```
 
-### Output
+#### Output
 
 5
 
-### Input
+#### Input
 ```
 nums = [-2, -1, -1, -3, -2, -4, -5]
 ```
 
-### Output
+#### Output
 
 0
 
 ## 2. Solve the Logical Expression given by string
 
-### Input
+#### Input
 
 ```
 str: “[!,[[0,&,[!,1]],|,[!,[[!,0],&,1]]]]”
 ```
 
-### Output
+#### Output
 
 ```
 1
 ```
 
-### Input
+#### Input
 
 ```
 str = “[[0,&,1],|,[!,1]]”
 ```
 
-### Output
+#### Output
 
 ```
 0
 ```
 
-## 3. tbd
+<!-- ## 5. tbd -->
 
-### Input
+<!-- #### Input -->
 
-```
-```
+<!-- ``` -->
+<!-- ``` -->
 
-### Output
+<!-- #### Output -->
 
-```
-```
+<!-- ``` -->
+<!-- ``` -->
