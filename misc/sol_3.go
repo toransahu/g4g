@@ -59,13 +59,15 @@ func Sol3(input string) string {
 		if top.(int)-item == 0 {
 			// remove the element from top of the stack
 			s.Pop()
+		} else {
+			return "INVALID"
 		}
 	}
 	// after processing all the digits in the given input, check if stack is empty or not
 	isEmpty, err := s.IsEmpty()
 
 	if err != nil {
-		return "INVALID"
+		panic(err)
 	}
 
 	// if the stack is empty
