@@ -216,6 +216,53 @@ str = “[[0,&,1],|,[!,1]]”
 0
 ```
 
+## 3. Given an expression string expression of parenthesis ( assume numbers from 0 to 9 each represent a type of parenthesis), write a program to examine whether the pairs and the orders are valid in expressions.
+
+NOTE: Negative numbers are opening and positive are closing
+
+#### Input
+
+```
+'-9-999'
+```
+
+#### Output
+
+```
+VALID
+```
+
+#### Input
+
+```
+'-1-1-22-4411'
+```
+
+#### Output
+
+```
+VALID
+```
+
+## 4. Given N tasks, and the dependencies among them, please provide an execution sequence, which make sure jobs are executed without violating the dependency.
+
+#### Input
+
+```
+5
+1<4
+3<2
+4<5
+
+First line is the number of total tasks. 1<4 means Task 1 has to be executed before task 4.
+```
+
+#### Output
+
+```
+One possible sequence would be: 1 4 5 3 2
+```
+
 <!-- ## 5. tbd -->
 
 <!-- #### Input -->
