@@ -1,2 +1,4 @@
 github.com/toransahu/goutils v0.0.0-20210423102351-7a3771322b73 h1:ZQrCJgUDxFVf28VXgTVWTYsDvH6Ntkwfk0cEO6guqeo=
 github.com/toransahu/goutils v0.0.0-20210423102351-7a3771322b73/go.mod h1:63ePWNuXOXYbGlweeQYbybR+aXoF1eCZnnBmb7sxAZQ=
+github.com/toransahu/goutils v0.1.1-0.20210425113559-bfe805a30e03 h1:VSvg/eXk1CbQ0mhjT+5hFsAbtB+8sA/f6WA10KuI+eo=
+github.com/toransahu/goutils v0.1.1-0.20210425113559-bfe805a30e03/go.mod h1:63ePWNuXOXYbGlweeQYbybR+aXoF1eCZnnBmb7sxAZQ=
