@@ -307,3 +307,7 @@ No celebrity
 
 #### Explanation
 There is no celebrity.
+
+## 6. Merge K sorted linkedlists.
+#### Constraints
+Auxilary Space <= O(K)
