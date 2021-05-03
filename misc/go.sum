@@ -6,6 +6,10 @@ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZN
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/toransahu/goutils v0.1.1-0.20210502175824-d2f7fefbd3c8 h1:l6cF9+fRVTbWRKdVdkl5+X0Ol88gsp8r573uO9s71Zo=
+github.com/toransahu/goutils v0.1.1-0.20210502175824-d2f7fefbd3c8/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
+github.com/toransahu/goutils v0.1.1-0.20210503062220-0c24c66c5b63 h1:EZjlCdCXZStE6fMeo6c7MYKvfPAOpEui0QevZiprPDU=
+github.com/toransahu/goutils v0.1.1-0.20210503062220-0c24c66c5b63/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b h1:h8qDotaEPuJATrMmW04NCwg7v22aHH28wwpauUhK9Oo=
