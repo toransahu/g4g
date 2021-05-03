@@ -122,7 +122,7 @@ func InsertInSortedOrder(l *adt.SLinkedlist, node *adt.SLLNode) {
 func Sol_6_v2(input [][]int) {}
 
 // Approach: delete the heads of each linkedlists and create a Min-Heap (priority queue), then pick the min element from the heap and append to the result linkedlist, replace that min element in the heap with with its next node in its linkedlist
-// Time complexity: O(K^2*N) or O(K^2 * N^2) ?
+// Time complexity: O(K^2*N)
 // Auxilary space: O(K)  (to keep map of K nodes and their corresponding linkedlists)
 func Sol_6_v3(input [][]int) []int {
 	// K - number of linkedlists
@@ -174,6 +174,9 @@ func Sol_6_v3(input [][]int) []int {
 	// resultant linkedlist
 	resultLL := adt.NewSLinkedList()
 
+	// point to the last node / tail of resultLL
+	var lastNodeOfresultLL *adt.SLLNode = nil
+
 	// while all the linkedlist are NON Empty
 	for { // O(KN)
 		// if the priorityQ is empty, then we have merged all nodes
@@ -187,8 +190,13 @@ func Sol_6_v3(input [][]int) []int {
 		// remove the min node from the priority queue
 		priorityQ.Remove(priorityQ.Head)
 
-		// append the min node to the result linkedlist
-		resultLL.AppendNode(minNode) // O(KN)?
+		// append the min node to the result linkedlist - O(1)
+		if lastNodeOfresultLL != nil {
+			minNode.Next = nil
+			lastNodeOfresultLL.Next = minNode
+		} else {
+			resultLL.AppendNode(minNode) // O(1)
+		}
 
 		// get the belonging linkedlist
 		l := nodeToSLL[minNode]

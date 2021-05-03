@@ -26,6 +26,8 @@ func TestSol6_v3(t *testing.T) {
 		{given: [][]int{{1, 3, 7}, {}, {}}, wanted: []int{1, 3, 7}},
 		{given: [][]int{{1, 3, 7}, {0}, {}}, wanted: []int{0, 1, 3, 7}},
 		{given: [][]int{{1, 3, 7}, {0}, {-1}}, wanted: []int{-1, 0, 1, 3, 7}},
+		{given: [][]int{{1, 2, 7}, {3, 8, 10}, {0, 5, 9}}, wanted: []int{0, 1, 2, 3, 5, 7, 8, 9, 10}},
+		{given: [][]int{{1, 2, 7}, {2, 8, 10}, {0, 7, 9}}, wanted: []int{0, 1, 2, 2, 7, 7, 8, 9, 10}},
 	}
 
 	for _, testcase := range testcases {
