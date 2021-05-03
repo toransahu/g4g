@@ -191,11 +191,14 @@ func Sol_6_v3(input [][]int) []int {
 		priorityQ.Remove(priorityQ.Head)
 
 		// append the min node to the result linkedlist - O(1)
-		if lastNodeOfresultLL != nil {
+		if lastNodeOfresultLL != nil { // if lastNodeOfresultLL exists - i.e. resultLL is not empty
 			minNode.Next = nil
-			lastNodeOfresultLL.Next = minNode
-		} else {
-			resultLL.AppendNode(minNode) // O(1)
+			lastNodeOfresultLL.Next = minNode            // append the min node to resultLL's lastNodeOfresultLL
+			lastNodeOfresultLL = lastNodeOfresultLL.Next // update the lastNodeOfresultLL with last node of the resultLL
+		} else { // else resultLL is empty
+			minNode.Next = nil
+			resultLL.Head = minNode            // set its Head
+			lastNodeOfresultLL = resultLL.Head // now lastNodeOfresultLL is Head of the resultLL
 		}
 
 		// get the belonging linkedlist
