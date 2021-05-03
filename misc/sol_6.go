@@ -82,6 +82,7 @@ func Sol_6_v1(input [][]int) []int {
 
 // InsertInSortedOrder inserts the given node in the given linkedlist such that the linkedlist is always maintained in a ASC sorted order
 // A kind of insert to a priority queue implemention (reversed order)
+// Time complexity: Best: O(1), Avg: O(log N)?, Worst: O(N)
 func InsertInSortedOrder(l *adt.SLinkedlist, node *adt.SLLNode) {
 	if l.IsEmpty() {
 		l.Head = node
@@ -121,7 +122,7 @@ func InsertInSortedOrder(l *adt.SLinkedlist, node *adt.SLLNode) {
 func Sol_6_v2(input [][]int) {}
 
 // Approach: delete the heads of each linkedlists and create a Min-Heap (priority queue), then pick the min element from the heap and append to the result linkedlist, replace that min element in the heap with with its next node in its linkedlist
-// Time complexity: O(K*N)
+// Time complexity: O(K^2*N) or O(K^2 * N^2) ?
 // Auxilary space: O(K)
 func Sol_6_v3(input [][]int) []int {
 	// K - number of linkedlists
@@ -148,7 +149,7 @@ func Sol_6_v3(input [][]int) []int {
 	nodeToSLL := map[*adt.SLLNode]*adt.SLinkedlist{}
 
 	// iterate through each linkedlists
-	for _, l := range linkedLists {
+	for _, l := range linkedLists { // O(K)
 		// linkedlist could be empty - add a check
 		if l.IsEmpty() {
 			continue
@@ -174,7 +175,7 @@ func Sol_6_v3(input [][]int) []int {
 	resultLL := adt.NewSLinkedList()
 
 	// while all the linkedlist are NON Empty
-	for {
+	for { // O(KN)
 		// if the priorityQ is empty, then we have merged all nodes
 		if priorityQ.IsEmpty() {
 			break
@@ -187,7 +188,7 @@ func Sol_6_v3(input [][]int) []int {
 		priorityQ.Remove(priorityQ.Head)
 
 		// append the min node to the result linkedlist
-		resultLL.AppendNode(minNode)
+		resultLL.AppendNode(minNode) // O(KN)?
 
 		// get the belonging linkedlist
 		l := nodeToSLL[minNode]
@@ -208,7 +209,7 @@ func Sol_6_v3(input [][]int) []int {
 
 		// append it to the priorityQ i.e.
 		// fill up/replace (append) the removed node in priority queue with its next node
-		InsertInSortedOrder(&priorityQ, nextNode)
+		InsertInSortedOrder(&priorityQ, nextNode) // O(K)
 	}
 
 	// an array to return the sorted data
