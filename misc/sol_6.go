@@ -123,7 +123,7 @@ func Sol_6_v2(input [][]int) {}
 
 // Approach: delete the heads of each linkedlists and create a Min-Heap (priority queue), then pick the min element from the heap and append to the result linkedlist, replace that min element in the heap with with its next node in its linkedlist
 // Time complexity: O(K^2*N) or O(K^2 * N^2) ?
-// Auxilary space: O(K)
+// Auxilary space: O(K)  (to keep map of K nodes and their corresponding linkedlists)
 func Sol_6_v3(input [][]int) []int {
 	// K - number of linkedlists
 	k := len(input)
@@ -192,6 +192,9 @@ func Sol_6_v3(input [][]int) []int {
 
 		// get the belonging linkedlist
 		l := nodeToSLL[minNode]
+
+		// now this mapping is no more required
+		delete(nodeToSLL, minNode)
 
 		// if the linkedlist is empty then update the `done` count
 		if l.IsEmpty() {
