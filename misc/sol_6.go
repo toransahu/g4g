@@ -175,7 +175,7 @@ func Sol_6_v3(input [][]int) []int {
 	resultLL := adt.NewSLinkedList()
 
 	// point to the last node / tail of resultLL
-	var lastNodeOfresultLL *adt.SLLNode = nil
+	var lastNodeOfResultLL *adt.SLLNode = nil
 
 	// while all the linkedlist are NON Empty
 	for { // O(KN)
@@ -191,14 +191,14 @@ func Sol_6_v3(input [][]int) []int {
 		priorityQ.Remove(priorityQ.Head)
 
 		// append the min node to the result linkedlist - O(1)
-		if lastNodeOfresultLL != nil { // if lastNodeOfresultLL exists - i.e. resultLL is not empty
+		if lastNodeOfResultLL != nil { // if lastNodeOfresultLL exists - i.e. resultLL is not empty
 			minNode.Next = nil
-			lastNodeOfresultLL.Next = minNode            // append the min node to resultLL's lastNodeOfresultLL
-			lastNodeOfresultLL = lastNodeOfresultLL.Next // update the lastNodeOfresultLL with last node of the resultLL
+			lastNodeOfResultLL.Next = minNode            // append the min node to resultLL's lastNodeOfresultLL
+			lastNodeOfResultLL = lastNodeOfResultLL.Next // update the lastNodeOfresultLL with last node of the resultLL
 		} else { // else resultLL is empty
 			minNode.Next = nil
 			resultLL.Head = minNode            // set its Head
-			lastNodeOfresultLL = resultLL.Head // now lastNodeOfresultLL is Head of the resultLL
+			lastNodeOfResultLL = resultLL.Head // now lastNodeOfresultLL is Head of the resultLL
 		}
 
 		// get the belonging linkedlist
