@@ -196,9 +196,10 @@ func Sol_6_v3(input [][]int) []int {
 		// now this mapping is no more required
 		delete(nodeToSLL, minNode)
 
-		// if the linkedlist is empty then update the `done` count
+		// if the linkedlist is empty
 		if l.IsEmpty() {
-			// increase the counter
+			// then no need to proceed and seek next node
+			// just continue fetching the min node
 			continue
 		}
 		// get the next node from the same linkedlist
