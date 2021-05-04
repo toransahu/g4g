@@ -1,5 +1,17 @@
 # Problems
 
+<!-- ## 5. tbd -->
+
+<!-- #### Input -->
+
+<!-- ``` -->
+<!-- ``` -->
+
+<!-- #### Output -->
+
+<!-- ``` -->
+<!-- ``` -->
+
 ## 1. Find the maximum sum of a contiguous sub array, less than or equal to K.
 
 #### Input
@@ -263,18 +275,6 @@ First line is the number of total tasks. 1<4 means Task 1 has to be executed bef
 One possible sequence would be: 1 4 5 3 2
 ```
 
-<!-- ## 5. tbd -->
-
-<!-- #### Input -->
-
-<!-- ``` -->
-<!-- ``` -->
-
-<!-- #### Output -->
-
-<!-- ``` -->
-<!-- ``` -->
-
 ## 5. In a party of N people, only one person is known to everyone. Such a person may be present in the party, if yes, (s)he doesn’t know anyone in the party. We can only ask questions like “does A know B? “. Find the stranger (celebrity) in the minimum number of questions.
 
 #### Input
@@ -310,4 +310,41 @@ There is no celebrity.
 
 ## 6. Merge K sorted linkedlists.
 #### Constraints
-Auxilary Space <= O(K)
+Auxilary Space `<= O(K)`
+
+## 7. Consider a field(assume a M*N matrix), you have to find the shortest path from any cell in the first column to any cell in the last column.
+
+
+Condition:  
+
+There are trespasser sensor in the field, which are marked with value 0. The cell with value 0 and also it's 8 adjacent cells can activate sensors. You have to find the shortest safe path.
+
+Possible moves:  
+
+```
+Go Up: (x, y) ——> (x – 1, y)
+Go Left: (x, y) ——> (x, y – 1)
+Go Down: (x, y) ——> (x + 1, y)
+Go Right: (x, y) ——> (x, y + 1)
+```
+
+#### Input
+
+```
+{ 0, 1, 1, 1, 0, 1, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 0, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+{ 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
+{ 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
+{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+```
+
+#### Output
+
+```
+shortest path has length: 11
+```
