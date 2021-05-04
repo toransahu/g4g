@@ -50,6 +50,35 @@ func Sol7(input [][]int) int {
 		}
 	}
 
+	/*
+		now we have somthing like this:
+		(assume o == -1)
+
+		0, o, 1, o, 0, o, 1, 1, 1, 1
+		o, o, 1, o, o, o, 1, o, o, o
+		1, 1, 1, 1, 1, 1, 1, o, 0, o
+		1, 1, 1, 1, o, o, o, o, o, o
+		1, 1, 1, 1, o, 0, o, 1, 1, 1
+		o, o, o, 1, o, o, o, 1, 1, 1
+		o, 0, o, 1, 1, 1, 1, 1, o, o
+		o, o, o, 1, o, o, o, 1, o, 0
+		1, 1, 1, 1, o, 0, o, 1, o, o
+		1, 1, 1, 1, o, o, o, 1, 1, 1
+
+		need to find a path in:
+
+		X  X  -  X  X  X  -  -  -  -
+		X  X  -  X  X  X  -  X  X  X
+		-  -  -  -  -  -  -  X  X  X
+		-  -  -  -  X  X  X  X  X  X
+		-  -  -  -  X  X  X  -  -  -
+		X  X  X  -  X  X  X  -  -  -
+		X  X  X  -  -  -  -  -  X  X
+		X  X  X  -  X  X  X  -  X  X
+		-  -  -  -  X  X  X  -  X  X
+		-  -  -  -  X  X  X  -  -  -
+	*/
+
 	// now find the shortest path (only distance) from nodes at first level to nodes at last level
 	// in an un-weighted/equal-weighted directed graph
 
@@ -65,8 +94,11 @@ func Sol7(input [][]int) int {
 
 	// iterate through first column i.e in MxN matrix, iterate like input[0, 0], input[1, 0], ... input[M, 0]
 	for i := 0; i < m; i++ {
-		// enqueue the nodes with distance from source as zero
-		q.Enqueue(NewNode(i, 0, 0))
+		// enqueue the safe nodes (with distance from source as zero)
+		if isSafeNode(i, 0, input) { // all of them are unvisited yet - no need to check
+			visited[i][0] = true // mark this node as visited
+			q.Enqueue(NewNode(i, 0, 0))
+		}
 	}
 
 	// while queue in not empty - O(M*N)
@@ -88,16 +120,19 @@ func Sol7(input [][]int) int {
 		}
 
 		// else run BFS for its adjacent nodes - to where traversal/movement is possible
+		// iterate through all the possible adjacent nodes
 		for _, pos := range getPossibleAdjacentNodes(node.i, node.j, m, n) {
-			if isSafeNode(pos[0], pos[1], input) {
-				visited[node.i][node.j] = true // mark this node as visited
+			// if they are safe & unvisited yet
+			if isSafeNode(pos[0], pos[1], input) && !visited[pos[0]][pos[1]] {
+				// mark this node as visited
+				visited[pos[0]][pos[1]] = true
 				// enqueue the node
 				q.Enqueue(NewNode(pos[0], pos[1], node.distance+1))
 			}
 		}
 	}
 
-	return -1 // if no solution exists
+	return -1 // no solution exists
 }
 
 // getAdjacentCellPos returns all the adjacent cells's position/location w.r.t the given node position
@@ -160,4 +195,41 @@ func isValidPos(i int, j int, m int, n int) bool {
 func isSafeNode(i int, j int, input [][]int) bool {
 	// if val is 1 (in another word, val is not 0, neither -1)
 	return input[i][j] == 1
+}
+
+// Problem: Suppose the movements have some diff. costs
+// Approach: Imagine there are 2 additional nodes, S (source) & D (destination);
+// connect S through each nodes/cells in column first & connect all nodes of last column to node D;
+// now find the shortest distance from S to D. This will add 2 more is the shortest distance
+// but as we know this fact, minus 2 in the final answer;
+// Apply a suitable shortest path algorithm for known source & destination nodes
+func Sol7_v2(input [][]int) int {
+	m := len(input) // num of rows in [][]int
+	n := 0          // num of columns - initially 0
+	// if given matrix is not empty
+	if m > 0 {
+		n = len(input[0])
+	}
+
+	// iterate through each row of the matrix - O(M*N)
+	for i := 0; i < m; i++ {
+		// iterate through each column of the matrix
+		for j := 0; j < n; j++ {
+			// if the given cell has sensor implanted
+			if input[i][j] == 0 {
+				// then iterate through adjacent nodes/cells as well
+				for _, pos := range getAdjacentCellPos(i, j, m, n) {
+					x := pos[0]
+					y := pos[1]
+					// mark the adjacent node possibly unsafe (using -1)
+					input[x][y] = -1
+				}
+			}
+		}
+	}
+
+	// now find the shortest path (only distance) from nodes at first level to nodes at last level
+	// in an un-weighted/equal-weighted directed graph
+
+	return -1
 }
