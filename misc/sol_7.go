@@ -26,22 +26,24 @@ func NewNode(i int, j int, distance int) *Node {
 // Time complexity: O(M*N)
 // Auxilary space: O(M*N) for the queue
 func Sol7(input [][]int) int {
-
 	m := len(input) // num of rows in [][]int
-	n := 0
+	n := 0          // num of columns - initially 0
+	// if given matrix is not empty
 	if m > 0 {
 		n = len(input[0])
 	}
 
+	// iterate through each row of the matrix - O(M*N)
 	for i := 0; i < m; i++ {
+		// iterate through each column of the matrix
 		for j := 0; j < n; j++ {
-
+			// if the given cell has sensor implanted
 			if input[i][j] == 0 {
-				// iterate through adjacent nodes/cells
+				// then iterate through adjacent nodes/cells as well
 				for _, pos := range getAdjacentCellPos(i, j, m, n) {
 					x := pos[0]
 					y := pos[1]
-					// mark adjacent nodes possibly unsafe (using -1)
+					// mark the adjacent node possibly unsafe (using -1)
 					input[x][y] = -1
 				}
 			}
@@ -49,24 +51,25 @@ func Sol7(input [][]int) int {
 	}
 
 	// now find the shortest path (only distance) from nodes at first level to nodes at last level
-	// in a un-weighted/equal-weighted directed graph
+	// in an un-weighted/equal-weighted directed graph
 
 	// queue for BFS
 	q := adt.NewQueue()
 
-	// array/list to track visited nodes during BFS
+	// a matrix to track visited nodes during BFS
 	visited := make([][]bool, m)
+	// initialize all the positions with `false`
 	for idx := 0; idx < m; idx++ {
 		visited[idx] = make([]bool, n)
 	}
 
-	// iterate through first column i.e in MxN iterate input[0, 0], input[1, 0], ... input[M, 0]
+	// iterate through first column i.e in MxN matrix, iterate like input[0, 0], input[1, 0], ... input[M, 0]
 	for i := 0; i < m; i++ {
 		// enqueue the nodes with distance from source as zero
 		q.Enqueue(NewNode(i, 0, 0))
 	}
 
-	// while queue in not empty
+	// while queue in not empty - O(M*N)
 	for {
 		// if the queue is empty
 		if q.IsEmpty() {
@@ -110,11 +113,15 @@ func getAdjacentCellPos(i int, j int, m int, n int) [][]int {
 		tr_y, r_y, br_y = j + 1, j + 1, j + 1
 	)
 
+	// top_left, top, top_right, left, right, bottom_left, bottom, bottom_right
 	x := []int{tl_x, t_x, tr_x, l_x, r_x, bl_x, b_x, br_x}
 	y := []int{tl_y, t_y, tr_y, l_y, r_y, bl_y, b_y, br_y}
 
+	// iterate 8 times - as 8 adjacents are possible (but may not be valid)
 	for idx := 0; idx < 8; idx++ {
+		// if the coordinate actually lies in a matrix of M*N
 		if isValidPos(x[idx], y[idx], m, n) {
+			// then append it to the list
 			adj = append(adj, []int{x[idx], y[idx]})
 		}
 	}
@@ -128,8 +135,11 @@ func getPossibleAdjacentNodes(i int, j int, m int, n int) [][]int {
 	x := []int{i, i - 1, i + 1, i}
 	y := []int{j - 1, j, j, j + 1}
 
+	// iterate 4 times - as 4 adjacents movements are possible (but may not be valid)
 	for idx := 0; idx < 4; idx++ {
+		// if the coordinate actually lies in a matrix of M*N
 		if isValidPos(x[idx], y[idx], m, n) {
+			// then append it to the list
 			adjacents = append(adjacents, []int{x[idx], y[idx]})
 		}
 	}
@@ -138,7 +148,9 @@ func getPossibleAdjacentNodes(i int, j int, m int, n int) [][]int {
 
 // isValidPos tells if given i,j coordinates lies in an 2-d array of size MxN or not
 func isValidPos(i int, j int, m int, n int) bool {
+	// if the coordinate actually lies in a matrix of M*N
 	if i < m && i >= 0 && j < n && j >= 0 {
+		// then its a valid coordinate
 		return true
 	}
 	return false
