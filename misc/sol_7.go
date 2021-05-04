@@ -97,12 +97,6 @@ func Sol7(input [][]int) int {
 	return -1 // if no solution exists
 }
 
-func getCellPos(nodeNum int, width int) (int, int) {
-	row := int(nodeNum / width)
-	col := nodeNum % width
-	return row, col
-}
-
 // getAdjacentCellPos returns all the adjacent cells's position/location w.r.t the given node position
 func getAdjacentCellPos(i int, j int, m int, n int) [][]int {
 	adj := [][]int{}
@@ -150,7 +144,8 @@ func isValidPos(i int, j int, m int, n int) bool {
 	return false
 }
 
+// isSafeNode returns is the cell at given coordinates is safe as per problem statement or not
 func isSafeNode(i int, j int, input [][]int) bool {
-	isSafe := input[i][j] == 1
-	return isSafe
+	// if val is 1 (in another word, val is not 0, neither -1)
+	return input[i][j] == 1
 }
