@@ -30,6 +30,10 @@ func TestSol4(t *testing.T) {
 			given: []string{"6", "2<3", "3<1", "4<0", "4<1", "5<2", "5<0"},
 			want:  []int{5, 4, 2, 3, 1, 0},
 		},
+		{
+			given: []string{"3", "0<1", "1<2", "2<0"},
+			want:  []int{}, // cycle detected, so no tasks
+		},
 	}
 
 	for _, testcase := range testcases {

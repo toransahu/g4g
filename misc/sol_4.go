@@ -42,5 +42,9 @@ func Sol4(input []string) []int {
 	for _, dep := range dependencies {
 		g.AddEdge(dep[0], dep[1])
 	}
-	return g.TopoSort()
+	result, hasCycle := g.TopoSort()
+	if hasCycle {
+		return []int{}
+	}
+	return result
 }
