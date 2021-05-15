@@ -12,6 +12,10 @@ github.com/toransahu/goutils v0.1.1-0.20210503062220-0c24c66c5b63 h1:EZjlCdCXZSt
 github.com/toransahu/goutils v0.1.1-0.20210503062220-0c24c66c5b63/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
 github.com/toransahu/goutils v0.1.1-0.20210504134818-878787c1d70a h1:4hMPQvXFVRdMW96/2Akzk416U/Klo4FuC+WM1ZSr7oQ=
 github.com/toransahu/goutils v0.1.1-0.20210504134818-878787c1d70a/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
+github.com/toransahu/goutils v0.1.1-0.20210515175927-463c3bbe7143 h1:cztUlDXqptZ6hGo92KuXZjGC4RycjRmyQdrIOtOZK9I=
+github.com/toransahu/goutils v0.1.1-0.20210515175927-463c3bbe7143/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
+github.com/toransahu/goutils v0.1.1-0.20210515181110-9472f184e006 h1:9Ahg7+LVZ402hVkNdTEHtpT7DWQeonLrWHPQJxG9+a8=
+github.com/toransahu/goutils v0.1.1-0.20210515181110-9472f184e006/go.mod h1:WcFgIsClpmNYolYo9fhxIQABvO2kxVEFE4g79w8s52A=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b h1:h8qDotaEPuJATrMmW04NCwg7v22aHH28wwpauUhK9Oo=
