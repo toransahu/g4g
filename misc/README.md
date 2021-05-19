@@ -202,6 +202,15 @@ nums = [-2, -1, -1, -3, -2, -4, -5]
 
 0
 
+1.10
+
+## 1.10. Given an integer array nums, find the contiguous subarray which has the largest sum less than or equal to K, and return its sum.
+
+Note:
+- array contains positive + negative numbers
+- subarray _could be empty_
+
+
 ## 2. Solve the Logical Expression given by string
 
 #### Input
