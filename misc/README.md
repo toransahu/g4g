@@ -374,11 +374,32 @@ shortest path has length: 11
 [6] ← [5] ← [4]
 ```
 
+### Solution
+Similar to [8.1](#8.1)
+
 ## 8.2. Find if a given doubly linkedlist is circular?
+TODO - start 2 pointers in opposite direction?
 
 ## 9. How Dynamic Array / Vector / List / Slice / ArrayList works internally?
+They all work in a similar manner. 
+
+They are array internally & their memory allocation happens dynamically whenever more space is required.
+Let's say if $X$ was the memory space/size allocated to the dynamic array. Suppose it is full (or about to become full) and we need to insert more elements, then:
+- a new bigger sized memory space is created on heap memory say $2 \times X + C$
+- all the elements (or references of the elements) are copied to the new memory location
+- old small memory space is deleted
+- and new elements are inserted
+
+Cost of this:
+- insertion at the beginning is costlier as all the elements are required to shift
+- insertion at the end is costlier if the size of the dynamic array is full and new bigger memory space allocation is required
+- amortized analysis is helpful in these cases
 
 ## 10. Detect Cycle in a Directed Graph?
+
+Solutions:
+- [algos](https://www.toran.xyz/notes/cs-fundamentals/Algo/#detect-cycle-in-graph)
+- [codes](https://github.com/toransahu/goutils/blob/master/adt/graph.go)
 
 ## 11. Remove duplicate nodes from a unsorted linked list
 
