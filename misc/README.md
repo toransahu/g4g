@@ -438,3 +438,17 @@ Insert(X), delete(X), search (X) and getRandom()
 Write the function prototype as well.
 
 ## 19. Two nodes of a binary search tree is swapped, how do you find which two value is swapped and how can you restore the original BST
+
+## 20. Suppose there is an excel sheet, Some of the cells in the sheet have some input value from some source, but values in  few cells are dependent on one or more cells in the sheet. You have to tell if you can use any existing data-structure for representing this problem, if not then can you design one? Write function prototype for the computation.
+
+Example: suppose the sheet is 3cell X 3 cell
+
+```
+Cell00, cell01, cell02  
+Cell10, cell11, cell12
+Cell20,cell21, cell22
+```
+
+- Cell 11 value is dependent on cell02, cell00
+- Cell 21 value is dependent on cell 22
+- Cell 22 value is dependent on cell11 and cell20
