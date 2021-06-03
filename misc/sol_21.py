@@ -42,6 +42,20 @@ def sol_21(N):
     return min_result
 
 
+assert sol_21(-1) == -1
+assert sol_21(0) == -1
+assert sol_21(1) == 0
+assert sol_21(2) == 2
+assert sol_21(3) == 3
+assert sol_21(4) == 4
+assert sol_21(5) == 5
 assert sol_21(6) == 5
 assert sol_21(7) == 7
 assert sol_21(8) == 6
+assert sol_21(9) == 6
+assert sol_21(10) == 7
+assert sol_21(11) == 11
+assert sol_21(12) == 7
+assert sol_21(13) == 13
+assert sol_21(14) == 9
+assert sol_21(15) == 8
