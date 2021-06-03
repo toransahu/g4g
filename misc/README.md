@@ -402,8 +402,10 @@ Solutions:
 - [codes](https://github.com/toransahu/goutils/blob/master/adt/graph.go)
 
 ## 11. Remove duplicate nodes from a unsorted linked list
+Doubt: Need stable (order should persist) algorithm? 
 
 ## 11.1 Remove duplicate nodes from a unsorted linked list without using extra space
+Doubt: Need stable (order should persist) algorithm? 
 
 ## 12. Suppose you have a input of continuous stream of integers, and at any point you want to get the median of the elements you have received so far. Write an algorithm for that.
 
@@ -452,3 +454,32 @@ Cell20,cell21, cell22
 - Cell 11 value is dependent on cell02, cell00
 - Cell 21 value is dependent on cell 22
 - Cell 22 value is dependent on cell11 and cell20
+
+## 21. You have given a character ‘A’ which is already printed. You are allowed to perform only 2 operations:
+
+- Copy All – This operation will copy all the printed characters.
+- Paste – This operation will paste all the characters which are already copied.
+Given a number N, write an algorithm to print character ‘A’ exactly N times with minimum no of operations (either copy all or paste)
+
+example:
+Character – A
+N = 6
+
+Option 1:
+Copy All – this will copy ‘A’
+Paste – output “AA”
+Paste – output “AAA”
+Paste – output “AAAA”
+Paste – output “AAAAA”
+Paste – output “AAAAAA”
+Total operations – 6
+
+Option 2:
+Copy All – this will copy ‘A’
+Paste – output “AA”
+Paste – output “AAA”
+Copy All
+Paste – output “AAAAAA”
+Total operations – 5
+
+Since with option 2, the task is done in 5 operations. Minimum operations – 5
