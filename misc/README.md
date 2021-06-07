@@ -484,4 +484,6 @@ Total operations – 5
 
 Since with option 2, the task is done in 5 operations. Minimum operations – 5
 
-## 22 Given a binary array, sort it using one traversal and no extra space. Assume length of the array is given.
+## 22. Given a binary array, sort it using one traversal and no extra space. Assume length of the array is given.
+
+## 23. Given an array consisting 0s, 1s and 2s. Write a function that sorts the array such that all 0s will be first, then all 1s and all 2s in last.
