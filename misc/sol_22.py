@@ -20,8 +20,10 @@ def sol_22(arr, n):
     while(l < r):
         if arr[l] == 0:
             l += 1
+            continue
         if arr[r] == 1:
             r -= 1
+            continue
         if arr[l] == 1 and arr[r] == 0:
             arr[l] = 0
             arr[r] = 1
