@@ -85,6 +85,11 @@ func Sol12_v2(ctx *ContextSol12v2, n int, returnMedian bool) float32 {
 		InsertToLeftHeap(ctx, n)
 	}
 
+	// IDEA: in the above logic, we're comparing the number with effective median
+	// and then choosing the appropriate heap. And if needed, rebalancing the heaps.
+	// Another way could be to add the number to the one heap and rebalancing the heaps every time.
+	// IMO, in the later logic we're always forced to do the rebalancing operation while in the first (implemented) one, we're rebalancing based on the input sample. So, that could perform better in best & avg case.
+
 	// calculate median - check even/odd
 	ctx.median = CalcMedian(ctx)
 	return ctx.median
