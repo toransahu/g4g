@@ -409,6 +409,10 @@ Doubt: Need stable (order should persist) algorithm?
 
 ## 12. Suppose you have a input of continuous stream of integers, and at any point you want to get the median of the elements you have received so far. Write an algorithm for that.
 
+## 12.1 If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+## 12.2 If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
 ## 13. Count the number of ways you can climb a stair, if the number of steps you can take is either 1 step, 2 step or 3 step at a time.
 
 Input: n = 3
