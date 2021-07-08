@@ -271,9 +271,11 @@ def bucket_sort(arr):
     return arr
 
 
-def heapify_subtree(arr, size, node):
+def percolate_down(arr, size, node):
     """
-    Heapify a node of a Sub Tree of a given size.
+    Percolate down a node in a Sub Tree of a given size.
+
+    i.e. adjust the position of the given node from top to downwards.
 
     Time Complexity: O(logn)
     Auxilary Space: O(1)
@@ -301,8 +303,34 @@ def heapify_subtree(arr, size, node):
     # swap the value of larger child with parent
     if largest != node:
         arr[largest], arr[node] = arr[node], arr[largest]
-        # and heapify that node      i.e. the index of child which was larger
-        heapify_subtree(arr, size, largest)
+        # and percolate_down that node      i.e. the index of child which was larger
+        percolate_down(arr, size, largest)
+    return arr
+
+
+def heapify(arr):
+    """
+    Heapify creates a heap out of unordered list of items.
+
+    aka BUILD HEAP.
+
+    i.e. adjust the position of the nodes in the given unordered array;
+    so that all the nodes follow the heap property.
+
+    Heapify percolates nodes from top to downwards - by traversing nodes from the end of the array (i.e. in reverse order).
+
+    Time Complexity:
+        Worst case: O(nlogn)
+        Amortized Analysis: O(n) (Not simply O(N) - there is math behind it - consider O(h) instead of O(log n) for percolation; where h is height of the tree) - refer this https://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity
+    Auxilary Space: O(1)
+    Implementation: Recursive
+    """
+    size = len(arr)
+    # make max heap
+    # to do so, start from last leaf and make max heap till root node
+    for node in range(size, -1, -1):
+        percolate_down(arr, size, node)
+
     return arr
 
 
@@ -311,11 +339,14 @@ def heap_sort(arr):
     Heap Sort.
 
     Desc:
-        1. Make max heap using heapify(). To do so, start from last leaf and make max heap till root node.
-        2. Loop from last leaf to second node.
-            1. Swap last leaf with root node in max heap
-            2. Heapify the sub-tree (by ignoring last leaf) at root node
-               till the loop covers all the nodes except the root node
+        1. Create a max-heap: Using HEAPIFY (aka BUILD_<MIN/MAX>_HEAP. To do so, start from last leaf and make max heap till root node.
+        2. EXTRACT (Get and Delete) the Top/Root nodes from the heap one by one to get sorted items
+            1. DELETE the top/root node
+            1. Fill the empty root position by Swapping the last leaf with root node in max heap
+            2. PERCOLATE_DOWN the (newly added) root node (by ignoring nodes added in step #3)
+           till the loop covers all the nodes (no need to do anything with the last node in the heap)
+        3. While doing step #2, why not add those items/nodes back again to the same array  (start at the end, in right to left direction) so that we can avoid an auxilary space and utilize the same array (to store items in sorted order)
+            1. Note: while doing step #2, make sure we're  not considering the nodes added during step #3
     Useful:
         1. When there is time (Quick's problem) and space (Merge's problem) bound
     Advantage:
@@ -323,7 +354,7 @@ def heap_sort(arr):
     Applications:
         1. Sort a nearly sorted (or K sorted) array
         2. k largest(or smallest) elements in an array
-    Time Complexity: O(heapify) * O(n) = O(nlogn)
+    Time Complexity: O(nlogn) + O(nlogn) = O(nlogn) (for insert n items + delete n items)
     Auxilary Space: O(1)
     In-Place: Yes
     Implementation: Recursive (Heapify)
@@ -332,18 +363,17 @@ def heap_sort(arr):
     Stable: Not in general
     Note: Quick & Merge are better in practice.
     """
-    size = len(arr)
-    # make max heap
-    # to do so, start from last leaf and make max heap till root node
-    for node in range(size, -1, -1):
-        heapify_subtree(arr, size, node)
+    # build heap out of unordered array
+    arr = heapify(arr)
+
+    # shorthand for: EXTRACT, PERCOLATE_DOWN, and APPEND the node to the same array again
 
     # swap last leaf with root node in max heap
     # and heapify the sub-tree (by ignoring last leaf) at root node
     # till the loop covers all the nodes except the root node
     for i in range(len(arr) - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
-        heapify_subtree(arr, i, 0)
+        percolate_down(arr, i, 0)
     return arr
 
 
@@ -639,7 +669,8 @@ arr_float = [0.3, 0.1, 0.5, 0.2, 0.7, 0.9, 0.8]
 # print(max_heap([1,3,2,5,4,0],0,5))
 # print(max_heap([1,2,3,4,5,6],0))
 # print(heap_sort([1,2,3,4,5,6]))
+print(heap_sort(arr))
 # print(bucket_sort(arr_float + arr))
-print(counting_sort(arr))
+# print(counting_sort(arr))
 # print(radix_sort(arr))
 # print(counting_sort_for_radix(arr, 10))
