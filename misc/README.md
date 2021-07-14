@@ -423,7 +423,18 @@ Output: 4
 - 2 step + 1 step
 - 3 step
 
-## 14. Let two numbers represented by two linked lists, write a function that returns the new list. The new  linked list is the representation of the addition of two input numbers. You can not modify the given input linked list and you can not use any explicit extra space other than the new linked list.
+## 14.1 Let two numbers represented by two linked lists, write a function that returns the new list. The new  linked list is the representation of the addition of two input numbers. You can not modify the given input linked list and you can not use any explicit extra space other than the new linked list.
+
+Note: Least (right) significant digit is the head of the linkedlist.
+
+Example: Number 126 is represented like: 6-->2-->1 and number 987 is represented as 7-->8-->9. And sum of 126+987=1113 is represented as 3-->1-->1-->1
+
+
+## 14.2 Let two numbers represented by two linked lists, write a function that returns the new list. The new  linked list is the representation of the addition of two input numbers. You can not modify the given input linked list and you can not use any explicit extra space other than the new linked list.
+
+Note: Most (left) significant digit is the head of the linkedlist.
+
+Example: Number 126 is represented like: 1-->2-->6 and number 987 is represented as 9-->8-->7. And sum of 126+987=1113 is represented as 1-->1-->1-->3.
 
 ## 15. design a data structure that can do following operations in O(1) time
 Insert(X), delete(X), search (X) and getRandom()
