@@ -8,6 +8,7 @@ Distributed under terms of the MIT license.
 // Package sol24
 package sol24
 
+// Sol24_v1 rotates the given arr by 90 degree (clockwise) by roating each circular/rectangular layer one by one.
 // Time complexity: O(n^2)
 // Space complexity: O(1)
 func Sol24_v1(arr [][]int) [][]int {
