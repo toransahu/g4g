@@ -13,36 +13,40 @@ package sol24
 func Sol24_v1(arr [][]int) [][]int {
 	size := len(arr)
 
-	var tmp, valAtNewCoord int
 	for i := 0; i < size/2; i++ {
 		for j := i; j < size-i-1; j++ {
 			x := i
 			y := j
 
-			origX, origY := x, y
-			isInitialRound := true
-			for {
-				if !isInitialRound && origX == x && origY == y {
-					break
-				}
+			// top --> right
+			nextX, nextY := nextCoord(x, y, size)
+			valAtNewCoord := arr[nextX][nextY]
+			arr[nextX][nextY] = arr[x][y]
+			x, y = nextX, nextY
+			tmp := valAtNewCoord
 
-				X, Y := newCoord(x, y, size)
+			// right --> bottom
+			nextX, nextY = nextCoord(x, y, size)
+			valAtNewCoord = arr[nextX][nextY]
+			arr[nextX][nextY] = tmp
+			x, y = nextX, nextY
+			tmp = valAtNewCoord
 
-				valAtNewCoord = arr[X][Y]
-				if isInitialRound {
-					arr[X][Y] = arr[x][y]
-				} else {
-					arr[X][Y] = tmp
-				}
-				tmp = valAtNewCoord
-				x, y = X, Y
-				isInitialRound = false
-			}
+			// bottom --> left
+			nextX, nextY = nextCoord(x, y, size)
+			valAtNewCoord = arr[nextX][nextY]
+			arr[nextX][nextY] = tmp
+			x, y = nextX, nextY
+			tmp = valAtNewCoord
+
+			// left --> top
+			nextX, nextY = nextCoord(x, y, size)
+			arr[nextX][nextY] = tmp
 		}
 	}
 	return arr
 }
 
-func newCoord(x, y, size int) (int, int) {
+func nextCoord(x, y, size int) (int, int) {
 	return y, size - 1 - x
 }
