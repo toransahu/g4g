@@ -12,6 +12,11 @@ import (
 	"github.com/toransahu/goutils/adt"
 )
 
+// Sol14_2_v1 adds two numbers represented by two linked lists.
+// Note: Most (left) significant digit is the head of the linkedlist.
+// Approach: Recursive
+// Time complexity: O(m or n)
+// Space complexity: O(n) - to store the resultant LL
 func Sol14_2_v1(head1, head2 *adt.SLLNode) *adt.SLLNode {
 	carryForw := 0
 	ctx := &Context{}
@@ -62,6 +67,8 @@ func Sol14_2_v1(head1, head2 *adt.SLLNode) *adt.SLLNode {
 	return ctx.prevResNode
 }
 
+// addNDummyNodes prefixes the LL (representing a number) by placing nodes with value=zero at head (left) side.
+// Time complexity: O(n) [here n is given as a constant]
 func addNDummyNodes(node *adt.SLLNode, n int) *adt.SLLNode {
 	for n > 0 {
 		tmpNode := adt.NewSLLNode(0)
@@ -72,12 +79,22 @@ func addNDummyNodes(node *adt.SLLNode, n int) *adt.SLLNode {
 	return node
 }
 
+// sumNodes adds two numbers represented by two linked lists and returns the carry forward.
+// Note: Most (left) significant digit is the head of the linkedlist.
+// Approach: recurrsive
+// Time complexity: O(n)  [from T(n) = T(n-1) + O(1)]
+// Space complexity: O(n)
 func sumNodes(ctx *Context, node1, node2 *adt.SLLNode) int {
+	// if nodes are null
 	if node1 == nil && node2 == nil {
+		// the sum is zero
 		return 0
 	}
+
+	// assume digits are zero
 	data1 := 0
 	data2 := 0
+	// if nodes have values, assign that
 	if node1 != nil {
 		data1 = node1.Data.(int)
 	}
@@ -85,16 +102,20 @@ func sumNodes(ctx *Context, node1, node2 *adt.SLLNode) int {
 		data2 = node2.Data.(int)
 	}
 
+	// sum of 2 digits in a number = sum of current digits + carry-forward from previous addition
 	sum := data1 + data2 + sumNodes(ctx, node1.Next, node2.Next)
 
+	// calculate the carry forward
 	carryForw := 0
 	if sum >= 10 {
 		carryForw = 1
 	}
+
+	// effective sum from addition of current digits
 	sum = sum % 10
 
+	// place the effective sum value in the resultant linkedlist
 	tmpNode := adt.NewSLLNode(sum)
-
 	if ctx.prevResNode == nil {
 		ctx.prevResNode = tmpNode
 	} else {
