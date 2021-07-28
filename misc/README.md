@@ -1,5 +1,7 @@
 # Problems
 
+[TOC]
+
 <!-- ## 5. tbd -->
 
 <!-- #### Input -->
@@ -506,3 +508,7 @@ Since with option 2, the task is done in 5 operations. Minimum operations – 5
 ## 24. You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise). You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
 
 ## 24.2. You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise). You have to rotate the image - use of auxilary space is allowed.
+
+## 25. Rod cutting problem using DP.
+## 26. Largest number possible after removing 'k' digits.
+## 27. Mirror a given binary tree.
