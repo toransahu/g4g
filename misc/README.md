@@ -513,3 +513,5 @@ Since with option 2, the task is done in 5 operations. Minimum operations – 5
 ## 26. Largest number possible after removing 'k' digits.
 ## 27. Mirror a given binary tree.
 ## 28. Return a pair of 2 numbers from an unsorted array such that the sum is equal to x.
+## 29. Find the first non repeating character in a string?
+## 30. Suppose you have a matrix of scattered 1s and 0s. Cluster of 1s form an island. How will you find number of such islands?
