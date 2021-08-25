@@ -1,5 +1,7 @@
 # Problems
 
+<h3>Table of Contents</h3>
+
 [TOC]
 
 <!-- ## 5. tbd -->
@@ -212,6 +214,7 @@ Note:
 - array contains positive + negative numbers
 - subarray _could be empty_
 
+## 1.11 Return a pair of 2 numbers from an unsorted array such that the sum is equal to x.
 
 ## 2. Solve the Logical Expression given by string
 
@@ -512,6 +515,42 @@ Since with option 2, the task is done in 5 operations. Minimum operations – 5
 ## 25. Rod cutting problem using DP.
 ## 26. Largest number possible after removing 'k' digits.
 ## 27. Mirror a given binary tree.
-## 28. Return a pair of 2 numbers from an unsorted array such that the sum is equal to x.
+## 28. Replace a value for the given key in a complext JSON object.
 ## 29. Find the first non repeating character in a string?
 ## 30. Suppose you have a matrix of scattered 1s and 0s. Cluster of 1s form an island. How will you find number of such islands?
+## 31.1. Given an string, and a pattern, find the minimal window.
+
+Minimal window: A substring in given string which contains all the chars of pattern string (irrespective of order and case), such that the substring is of smallest length among others.
+
+No constraints on size of the given string/pattern.
+
+e.g. 
+
+String: "this is a test string."
+Pattern: "tist"
+
+Output: "t stri" of length 6
+
+Ref:  
+1. https://leetcode.com/problems/minimum-window-substring/
+1. https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
+
+## 32. Search an element in a sorted and rotated array.
+```
+Input  : arr[] = {5, 6, 7, 8, 9, 10, 1, 2, 3};
+         key = 3
+Output : Found at index 8
+
+Input  : arr[] = {5, 6, 7, 8, 9, 10, 1, 2, 3};
+         key = 30
+Output : Not found
+
+Input : arr[] = {30, 40, 50, 10, 20}
+        key = 10
+Output : Found at index 3
+```
+
+# TODOs
+- https://www.geeksforgeeks.org/amazon-interview-experience-for-sde-ii-virtual-rounds/
+    - https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
+    - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
