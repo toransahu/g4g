@@ -242,6 +242,16 @@ str = “[[0,&,1],|,[!,1]]”
 0
 ```
 
+## 2.2 Given an encoded string, decode it
+
+```
+e.g.
+
+i=2[a]3[bc]; o=aabcbcbc
+i=2[a2[c]]; o=accacc
+```
+
+
 ## 3. Given an expression string expression of parenthesis ( assume numbers from 0 to 9 each represent a type of parenthesis), write a program to examine whether the pairs and the orders are valid in expressions.
 
 NOTE: Negative numbers are opening and positive are closing
@@ -549,6 +559,16 @@ Input : arr[] = {30, 40, 50, 10, 20}
         key = 10
 Output : Found at index 3
 ```
+
+## 33. Given a list of node values in asc order, form a self balanced BST, and output level order traversal of the tree.
+
+Note: The diff. in height of the left & right sub-tree should not be more than 1, at any node.
+
+```
+Input: [-10, -9, -3, 0, 5, 9]
+Output: [0, -9, 5, -10, -3, null, 9]
+```
+
 
 # TODOs
 - https://www.geeksforgeeks.org/amazon-interview-experience-for-sde-ii-virtual-rounds/
