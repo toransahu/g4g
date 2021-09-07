@@ -43,6 +43,7 @@ def sol_23_v2(arr, n):
                 arr[m], arr[r] = arr[r], arr[m]
                 r -= 1
                 r_solved = True
+        # if none of them got fixed, increment the m
         if not any([l_solved, r_solved]):
             m += 1
     return arr
