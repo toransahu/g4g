@@ -1,4 +1,4 @@
-# Problems
+<h1>Competitive Programming Problems</h1>
 
 <h3>Table of Contents</h3>
 
@@ -14,7 +14,7 @@
 <!-- #### Output -->
 
 <!-- ``` -->
-<!-- ``` -->
+<!-- ``` --> 
 
 ## 1. Find the maximum sum of a contiguous sub array, less than or equal to K.
 
@@ -567,6 +567,12 @@ Output : Found at index 3
 
 ## 32.3. Given a sorted and rotated array, find if there is a pair with a given sum.
 
+
+## TODOs
+- https://www.geeksforgeeks.org/amazon-interview-experience-for-sde-ii-virtual-rounds/
+    - https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
+    - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
+
 ## 33. Given a list of node values in asc order, form a self balanced BST, and output level order traversal of the tree.
 
 Note: The diff. in height of the left & right sub-tree should not be more than 1, at any node.
@@ -576,8 +582,22 @@ Input: [-10, -9, -3, 0, 5, 9]
 Output: [0, -9, 5, -10, -3, null, 9]
 ```
 
+## 34. Find a missing element in sorted (link) list in better than O(n) time.
 
-# TODOs
-- https://www.geeksforgeeks.org/amazon-interview-experience-for-sde-ii-virtual-rounds/
-    - https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
-    - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
+input: 11,12,14,15,16,17  
+Output: 13
+
+## 35. Given a sorted doubly link list and two numbers C and K. You need to decrease the info of node with data K by C and insert the new node formed at its correct position such that the list remains sorted.
+
+
+## 36. Given a large file which contains m rows and n columns. Given a column no, sort the column in such a way that corresponding rows also sorted.
+
+## 37. Find the distance between two keys in a binary tree, no parent pointers are given. The distance between two nodes is the minimum number of edges to be traversed to reach one node from another.
+
+## 38. Given a very large (giant) number, which cannot be stored in usual data types. Perform arithmetic operation on that.
+
+## 39. Given a sorted linkedlist, expand it with given bunch of batch of unsorted numbers.
+
+## 40.1. Given a binary search tree BST, find the K^th largest number.
+
+## 40.2. Given a binary search tree BST, find K largest numbers.
