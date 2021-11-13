@@ -15,15 +15,16 @@ e.g.
 s=eacdaba
   0123456
 
-i	s[i]	suffixes ending with s[i]					strength of the suffixes/substrings
--------------------------------------------------------------------------------------------
-0	e		[e]											1								 1
-1	a		[ea, a]										2 + 1							 3
-2	c		[eac, ac, c]								3 + 2 + 1						 6
-3	d		[eacd, acd, cd, d]							4 + 3 + 2 + 1					10
-4	a		[eacda, acda, cda, da, a]					4 + 3 + 3 + 2 + 1				13
-5	b		[eacdab, acdab, cdab, dab, ab, b]			5 + 4 + 4 + 3 + 2 + 1			19
-6	a		[eacdaba, acdaba, cdaba, daba, aba, ba, a]	5 + 4 + 4 + 3 + 2 + 2 + 1		21
+i	s[i]	suffixes ending with s[i]					strength of the suffixes/substrings     repeating	observation
+																								char?
+---------------------------------------------------------------------------------------------------------------
+0	e		[e]											1								 1      N	add 1 on 0
+1	a		[ea, a]										2 + 1							 3      N	add 2 on prev
+2	c		[eac, ac, c]								3 + 2 + 1						 6      N	add 3 on prev
+3	d		[eacd, acd, cd, d]							4 + 3 + 2 + 1					10      N	add 4 on prev
+4	a		[eacda, acda, cda, da, a]					4 + 3 + 3 + 2 + 1				13      Y	add 3 on prev
+5	b		[eacdab, acdab, cdab, dab, ab, b]			5 + 4 + 4 + 3 + 2 + 1			19      N	add 6 on prev
+6	a		[eacdaba, acdaba, cdaba, daba, aba, ba, a]	5 + 4 + 4 + 3 + 2 + 2 + 1		21      Y	add 3 on prev
 																					   -----
 																						73
 */
