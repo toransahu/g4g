@@ -566,7 +566,28 @@ Output : Found at index 3
 ## 32.2. Find the minimum element in a sorted and rotated array
 
 ## 32.3. Given a sorted and rotated array, find if there is a pair with a given sum.
+## 41. In order to ensure account security, the developers at a Company have come up with a new algorithm to determine the strength of a password. According to this algorithm, the strength of a password consisting of lowercase English letters only, is calculated as the sum of the number of distinct characters present in all possible substrings of that password. Given a string password, find the strength of that password.
 
+__Note:  A substring is a contiguous sequence of characters within a string, taken in the same order.__
+
+
+#### Example 1
+- input: password = "good" 
+- output: 16 
+- Explanation: The following substrings are present in the given password, with their count of distinct characters: 
+
+Thus, password strength = 1 + 1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 3 = 16. 
+
+#### Example 2
+- input: password = "test" 
+- output: 19 
+- Explanation: The following substrings are present in the given password, with their count of distinct characters: 
+
+Thus, the password strength = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 3 = 19.
+
+#### Constraints
+- 1 ≤ length of password ≤ 105 
+- The string password consists of lowercase English letters only.
 
 ## TODOs
 - https://www.geeksforgeeks.org/amazon-interview-experience-for-sde-ii-virtual-rounds/
@@ -601,26 +622,6 @@ Output: 13
 ## 40.1. Given a binary search tree BST, find the K^th largest number.
 
 ## 40.2. Given a binary search tree BST, find K largest numbers.
+## 41.1 Find/count all the substrings of the given string.
+## 41.2 Find/count all the substrings of the given string having non-repeating chars.
 
-## 41. In order to ensure account security, the developers at a Company have come up with a new algorithm to determine the strength of a password. According to this algorithm, the strength of a password consisting of lowercase English letters only, is calculated as the sum of the number of distinct characters present in all possible substrings of that password. Given a string password, find the strength of that password.
-
-__Note:  A substring is a contiguous sequence of characters within a string, taken in the same order.__
-
-
-#### Example 1
-- input: password = "good" 
-- output: 16 
-- Explanation: The following substrings are present in the given password, with their count of distinct characters: 
-
-Thus, password strength = 1 + 1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 3 = 16. 
-
-#### Example 2
-- input: password = "test" 
-- output: 19 
-- Explanation: The following substrings are present in the given password, with their count of distinct characters: 
-
-Thus, the password strength = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 3 = 19.
-
-#### Constraints
-- 1 ≤ length of password ≤ 105 
-- The string password consists of lowercase English letters only.
