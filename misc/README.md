@@ -524,7 +524,7 @@ Since with option 2, the task is done in 5 operations. Minimum operations – 5
 
 ## 25. Rod cutting problem using DP.
 ## 26. Largest number possible after removing 'k' digits.
-## 27. Mirror a given binary tree.
+## 27.1 Mirror a given binary tree.
 ## 28. Replace a value for the given key in a complext JSON object.
 ## 29. Find the first non repeating character in a string?
 ## 30. Suppose you have a matrix of scattered 1s and 0s. Cluster of 1s form an island. How will you find number of such islands?
@@ -594,6 +594,12 @@ Thus, the password strength = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 3 = 19.
     - https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
     - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
 
+## 1.11 Given an array of integers, find the possible number of combinations which is divisible by 6?
+## 19.1. Given a binary search tree BST, find the K^th largest number.
+## 19.2. Given a binary search tree BST, find K largest numbers.
+## 19.3. Check if given tree is binary search tree BST.
+## 27.2 Find the distance between two keys in a binary tree, no parent pointers are given. The distance between two nodes is the minimum number of edges to be traversed to reach one node from another.
+## 27.3 Given the root of a binary tree, return the values of its boundary.
 ## 33. Given a list of node values in asc order, form a self balanced BST, and output level order traversal of the tree.
 
 Note: The diff. in height of the left & right sub-tree should not be more than 1, at any node.
@@ -609,19 +615,9 @@ input: 11,12,14,15,16,17
 Output: 13
 
 ## 35. Given a sorted doubly link list and two numbers C and K. You need to decrease the info of node with data K by C and insert the new node formed at its correct position such that the list remains sorted.
-
-
 ## 36. Given a large file which contains m rows and n columns. Given a column no, sort the column in such a way that corresponding rows also sorted.
-
-## 37. Find the distance between two keys in a binary tree, no parent pointers are given. The distance between two nodes is the minimum number of edges to be traversed to reach one node from another.
-
 ## 38. Given a very large (giant) number, which cannot be stored in usual data types. Perform arithmetic operation on that.
-
 ## 39. Given a sorted linkedlist, expand it with given bunch of batch of unsorted numbers.
-
-## 40.1. Given a binary search tree BST, find the K^th largest number.
-
-## 40.2. Given a binary search tree BST, find K largest numbers.
 ## 41.1 Find/count all the substrings of the given string.
 ## 41.2 Find/count all the substrings of the given string having non-repeating chars.
-
+## 41. Determine if a 9 x 9 Sudoku board is valid.
