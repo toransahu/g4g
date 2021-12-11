@@ -469,6 +469,8 @@ Insert(X), delete(X), search (X) and getRandom()
 
 Write the function prototype as well.
 
+## 18.2 Given a list of strings, group the anagrams together.
+
 ## 19. Two nodes of a binary search tree is swapped, how do you find which two value is swapped and how can you restore the original BST
 
 ## 20. Suppose there is an excel sheet, Some of the cells in the sheet have some input value from some source, but values in  few cells are dependent on one or more cells in the sheet. You have to tell if you can use any existing data-structure for representing this problem, if not then can you design one? Write function prototype for the computation.
