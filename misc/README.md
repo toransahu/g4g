@@ -473,6 +473,10 @@ Write the function prototype as well.
 
 ## 19. Two nodes of a binary search tree is swapped, how do you find which two value is swapped and how can you restore the original BST
 
+## 19.1. Given a binary search tree BST, find the K^th largest number.
+
+## 19.2. Given a binary search tree BST, find K largest numbers.
+
 ## 19.3. Check if given tree is binary search tree BST.
 
 ## 20. Suppose there is an excel sheet, Some of the cells in the sheet have some input value from some source, but values in  few cells are dependent on one or more cells in the sheet. You have to tell if you can use any existing data-structure for representing this problem, if not then can you design one? Write function prototype for the computation.
@@ -599,8 +603,6 @@ Thus, the password strength = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 3 = 19.
     - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
 
 ## 1.11 Given an array of integers, find the possible number of combinations which is divisible by 6?
-## 19.1. Given a binary search tree BST, find the K^th largest number.
-## 19.2. Given a binary search tree BST, find K largest numbers.
 ## 27.2 Find the distance between two keys in a binary tree, no parent pointers are given. The distance between two nodes is the minimum number of edges to be traversed to reach one node from another.
 ## 27.3 Given the root of a binary tree, return the values of its boundary.
 ## 33. Given a list of node values in asc order, form a self balanced BST, and output level order traversal of the tree.
