@@ -214,7 +214,9 @@ Note:
 - array contains positive + negative numbers
 - subarray _could be empty_
 
-## 1.11 Return a pair of 2 numbers from an unsorted array such that the sum is equal to x.
+## 1.11 Return a pair (suppose single solution) of 2 numbers from an unsorted array such that the sum is equal to x.
+
+## 1.11.1 Return pairs (suppose multiple solution) of 2 numbers from an unsorted array such that the sum is equal to x.
 
 ## 2. Solve the Logical Expression given by string
 
@@ -602,7 +604,7 @@ Thus, the password strength = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3 + 3 = 19.
     - https://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
     - https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/space-smugglers/
 
-## 1.11 Given an array of integers, find the possible number of combinations which is divisible by 6?
+## 1.12 Given an array of integers, find the possible number of combinations which is divisible by 6?
 ## 27.2 Find the distance between two keys in a binary tree, no parent pointers are given. The distance between two nodes is the minimum number of edges to be traversed to reach one node from another.
 ## 27.3 Given the root of a binary tree, return the values of its boundary.
 ## 33. Given a list of node values in asc order, form a self balanced BST, and output level order traversal of the tree.
